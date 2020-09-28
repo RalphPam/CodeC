@@ -46,6 +46,9 @@ router.post(
       } = req.body
 
       const profileFields = {}
+
+      profileFields.user = req.user.id
+
       if (company) profileFields.company = company
       if (website) profileFields.website = website
       if (location) profileFields.location = location
