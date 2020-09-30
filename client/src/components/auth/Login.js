@@ -1,21 +1,25 @@
 import React, { Fragment, useState } from 'react'
 import { Link } from 'react-router-dom'
+import PropTypes from 'prop-types'
 
-const Login = () => {
+import { connect } from 'react-redux'
+import { login } from '../../redux/actions/auth'
+
+const Login = ({ login }) => {
    const [userData, setUserData] = useState({
       email: '',
       password: '',
    })
+
+   const { email, password } = userData
 
    const handler = (e) =>
       setUserData({ ...userData, [e.target.name]: e.target.value })
 
    const submitHandler = async (e) => {
       e.preventDefault()
-      console.log('SUCCESS')
+      login({ email, password })
    }
-
-   const { email, password } = userData
 
    return (
       <Fragment>
@@ -45,4 +49,8 @@ const Login = () => {
    )
 }
 
-export default Login
+Login.propTypes = {
+   login: PropTypes.func.isRequired,
+}
+
+export default connect(null, { login })(Login)

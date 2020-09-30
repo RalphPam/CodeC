@@ -3,6 +3,8 @@ import {
    REGISTER_FAILED,
    USER_LOADED,
    AUTH_ERROR,
+   LOGIN_SUCCESS,
+   LOGIN_FAILED,
 } from '../actions/types'
 
 const initialState = {
@@ -22,6 +24,7 @@ export const registerReducer = (state = initialState, action) => {
             isLoading: false,
             user: payload,
          }
+      case LOGIN_SUCCESS:
       case REGISTER_SUCCESS:
          localStorage.setItem('token', payload.token)
          return {
@@ -30,6 +33,7 @@ export const registerReducer = (state = initialState, action) => {
             isAuthenticated: true,
             isLoading: false,
          }
+      case LOGIN_FAILED:
       case AUTH_ERROR:
       case REGISTER_FAILED:
          localStorage.removeItem('token')

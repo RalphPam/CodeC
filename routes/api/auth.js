@@ -37,7 +37,7 @@ router.post(
          if (!user || !isMatch) {
             return res
                .status(400)
-               .json({ error: [{ msg: 'Invalid Credentials' }] })
+               .json({ errors: [{ msg: 'Invalid Credentials' }] })
          }
          const payload = {
             user: {
