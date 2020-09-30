@@ -36,7 +36,7 @@ export const Login = () => {
                required
                onChange={(e) => handler(e)}
             />
-            <input type='submit' value='Login' />
+            <input type='submit' value='Log In' />
          </form>
          <p>
             Don't have an account? <Link to='/login'>Sign Up</Link>
