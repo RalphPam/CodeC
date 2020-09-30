@@ -5,6 +5,7 @@ import {
    AUTH_ERROR,
    LOGIN_SUCCESS,
    LOGIN_FAILED,
+   LOGOUT,
 } from './types'
 import axios from 'axios'
 import { setAlert } from './alert'
@@ -60,9 +61,12 @@ export const login = ({ email, password }) => async (dispatch) => {
       dispatch(loadUser())
    } catch (err) {
       const errors = err.response.data.errors
-      console.log(err.response.data.errors)
       if (errors)
          errors.forEach((error) => dispatch(setAlert(error.msg, 'fail')))
       dispatch({ type: LOGIN_FAILED })
    }
+}
+
+export const logout = () => async (dispatch) => {
+   dispatch({ type: LOGOUT })
 }

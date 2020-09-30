@@ -5,6 +5,7 @@ import {
    AUTH_ERROR,
    LOGIN_SUCCESS,
    LOGIN_FAILED,
+   LOGOUT,
 } from '../actions/types'
 
 const initialState = {
@@ -33,6 +34,7 @@ export const auth = (state = initialState, action) => {
             isAuthenticated: true,
             isLoading: false,
          }
+      case LOGOUT:
       case LOGIN_FAILED:
       case AUTH_ERROR:
       case REGISTER_FAILED:
