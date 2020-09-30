@@ -1,5 +1,7 @@
 import React from 'react'
 
-export const Show = () => {
+const Show = () => {
    return <div>Showcase</div>
 }
+
+export default Show
