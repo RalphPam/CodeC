@@ -14,7 +14,7 @@ const initialState = {
    user: null,
 }
 
-export const registerReducer = (state = initialState, action) => {
+export const auth = (state = initialState, action) => {
    const { type, payload } = action
    switch (type) {
       case USER_LOADED:

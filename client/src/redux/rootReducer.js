@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
 import { alertReducer as alert } from './reducers/alert'
-import { registerReducer as register } from './reducers/auth'
+import { auth } from './reducers/auth'
 
-export default combineReducers({ alert, register })
+export default combineReducers({ alert, auth })
