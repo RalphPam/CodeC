@@ -28,11 +28,19 @@ router.get('/me', auth, async (req, res) => {
 
 router.post(
    '/',
-   [auth, [check('status').not().isEmpty(), check('skills').not().isEmpty()]],
+   [
+      auth,
+      [
+         check('status', 'Please select your professional status')
+            .not()
+            .isEmpty(),
+         check('skills', 'Please fill in skills').not().isEmpty(),
+      ],
+   ],
    async (req, res) => {
       const error = validationResult(req)
       if (!error.isEmpty()) {
-         return res.status(400).json({ errors: errors.array() })
+         return res.status(400).json({ errors: error.array() })
       }
 
       const {

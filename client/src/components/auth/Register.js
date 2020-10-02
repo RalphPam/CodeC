@@ -20,7 +20,7 @@ const Register = ({ setAlert, register, isAuthenticated, isLoading }) => {
    const handler = (e) =>
       setUserData({ ...userData, [e.target.name]: e.target.value })
 
-   const submitHandler = async (e) => {
+   const submitHandler = (e) => {
       e.preventDefault()
       if (password !== conPassword) setAlert('Password do not match', 'fail')
       else {

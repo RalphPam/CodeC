@@ -1,4 +1,9 @@
-import { GET_PROFILE, FAIL2GET_PROFILE, CLR_PROFILE } from '../actions/types'
+import {
+   GET_PROFILE,
+   FAIL2GET_PROFILE,
+   CLR_PROFILE,
+   CREATE_PROFILE,
+} from '../actions/types'
 
 const initialState = {
    profile: null,
@@ -11,6 +16,7 @@ const initialState = {
 export const profile = (state = initialState, action) => {
    const { type, payload } = action
    switch (type) {
+      case CREATE_PROFILE:
       case GET_PROFILE:
          return {
             ...state,

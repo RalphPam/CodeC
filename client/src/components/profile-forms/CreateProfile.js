@@ -1,8 +1,10 @@
-import React, { Fragment, useState } from 'react'
+import React, { Fragment, useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
-import { Link } from 'react-router-dom'
+import { Link, withRouter } from 'react-router-dom'
+import { createProfile } from '../../redux/actions/profile'
+import { connect } from 'react-redux'
 
-const CreateProfile = (props) => {
+const CreateProfile = ({ createProfile, profile, history }) => {
    const [addSocial, setAddSocial] = useState(false)
    const [userData, setUserData] = useState({
       company: '',
@@ -33,25 +35,59 @@ const CreateProfile = (props) => {
       linkedin,
    } = userData
 
+   useEffect(() => {
+      if (profile) {
+         const {
+            company,
+            website,
+            location,
+            bio,
+            status,
+            githubusername,
+            skills,
+            social,
+         } = profile
+         setUserData({
+            company: company ? company : '',
+            website: website ? website : '',
+            location: location ? location : '',
+            bio: bio ? bio : '',
+            status: status ? status : '',
+            githubusername: githubusername ? githubusername : '',
+            skills: skills ? skills.join(', ') : '',
+            youtube: social && social.youtube ? social.youtube : '',
+            facebook: social && social.facebook ? social.facebook : '',
+            twitter: social && social.twitter ? social.twitter : '',
+            instagram: social && social.instagram ? social.instagram : '',
+            linkedin: social && social.linkedin ? social.linkedin : '',
+         })
+      }
+   }, [profile, setUserData])
+
    const onChangeHandler = (e) => {
       setUserData({ ...userData, [e.target.name]: e.target.value })
    }
 
+   const submitHandler = (e) => {
+      e.preventDefault()
+      createProfile({ ...userData }, history, profile ? true : false)
+   }
+
    return (
       <Fragment>
-         <h1>Create Your Profile</h1>
+         <h1>{profile ? 'Edit Profile' : 'Create Your Profile'}</h1>
          <p>
             <i className='fas fa-user'></i> Let's get some information to make
             your profile stand out
          </p>
-         <form className='form'>
+         <form className='form' onSubmit={(e) => submitHandler(e)}>
             <div className='form-group'>
                <select
                   name='status'
                   value={status}
                   onChange={(e) => onChangeHandler(e)}
                >
-                  <option value='0'>
+                  <option value=''>
                      Select Professional Status (Required)
                   </option>
                   <option value='Developer'>Developer</option>
@@ -200,13 +236,21 @@ const CreateProfile = (props) => {
                   </div>
                </Fragment>
             )}
-            <input type='submit' />
+            <input type='submit' value='Save' />
             <Link to='/dashboard'>Go Back</Link>
          </form>
       </Fragment>
    )
 }
 
-CreateProfile.propTypes = {}
+const mapStateToProps = (state) => ({
+   profile: state.profile.profile,
+})
 
-export default CreateProfile
+CreateProfile.propTypes = {
+   createProfile: PropTypes.func.isRequired,
+}
+
+export default connect(mapStateToProps, { createProfile })(
+   withRouter(CreateProfile)
+)
