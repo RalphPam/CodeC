@@ -3,11 +3,27 @@ import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { logout } from '../../redux/actions/auth'
+import { clrProfile } from '../../redux/actions/profile'
 
-const Navbar = ({ isAuthenticated, isLoading, logout }) => {
+const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
    const userLink = (
       <Fragment>
-         <Link to={'/'} onClick={() => logout()}>
+         <Link to={'/dashboard'}>
+            <li>
+               {!isLoading && (
+                  <Fragment>
+                     <i className='fas fa-user'></i> Dashboard
+                  </Fragment>
+               )}
+            </li>
+         </Link>
+         <Link
+            to={'/'}
+            onClick={() => {
+               logout()
+               clrProfile()
+            }}
+         >
             <li>
                {!isLoading && (
                   <Fragment>
@@ -26,14 +42,14 @@ const Navbar = ({ isAuthenticated, isLoading, logout }) => {
          <Link to='/register'>
             <li>Register</li>
          </Link>
-         <Link to='/login'>
+         <Link to='/'>
             <li>Login</li>
          </Link>
       </Fragment>
    )
    return (
       <nav>
-         <Link to='/'>
+         <Link to={isAuthenticated ? '/dashboard' : '/'}>
             <h1>Logo</h1>
          </Link>
          <ul>{isAuthenticated ? userLink : guestLink}</ul>
@@ -52,4 +68,4 @@ Navbar.propTypes = {
    logout: PropTypes.func.isRequired,
 }
 
-export default connect(mapStateToProps, { logout })(Navbar)
+export default connect(mapStateToProps, { logout, clrProfile })(Navbar)

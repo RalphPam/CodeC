@@ -1,10 +1,13 @@
 import React, { Fragment, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Navbar from './components/layout/Navbar'
-import Showcase from './components/layout/Show'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
 import Alert from './components/layout/Alert'
+import PrivateRoute from './components/PrivateRoute'
+import Dashboard from './components/dashboard/Dashboard'
+import CreateProfile from './components/profile-forms/CreateProfile'
+import NotFound from './components/layout/NotFound'
 import './App.css'
 
 import { setAuthToken } from './utils/setAuthToken'
@@ -26,11 +29,23 @@ export const App = () => {
             <Fragment>
                <Navbar />
                <Alert />
-               <Switch>
-                  <Route exact path='/' component={Showcase} />
-                  <Route exact path='/register' component={Register} />
-                  <Route exact path='/login' component={Login} />
-               </Switch>
+               <section>
+                  <Switch>
+                     <Route exact path='/' component={Login} />
+                     <Route exact path='/register' component={Register} />
+                     <PrivateRoute
+                        exact
+                        path='/dashboard'
+                        component={Dashboard}
+                     />
+                     <PrivateRoute
+                        exact
+                        path='/create-profile'
+                        component={CreateProfile}
+                     />
+                     <Route path='*' component={NotFound} />
+                  </Switch>
+               </section>
             </Fragment>
          </Router>
       </Provider>
