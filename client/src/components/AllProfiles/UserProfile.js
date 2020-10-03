@@ -20,7 +20,7 @@ const UserProfile = ({
                {status} {company && <span>at {company}</span>}
             </p>
             <p>{location && <span>{location}</span>}</p>
-            <Link to=''>View Profile</Link>
+            <Link to={`/profile/${_id}`}>View Profile</Link>
          </div>
          <ul>
             {skills.slice(0, 4).map((skill, index) => (
