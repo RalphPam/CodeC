@@ -129,7 +129,7 @@ router.delete('/', auth, async (req, res) => {
    try {
       await Profile.deleteOne({ user: req.user.id })
       await User.deleteOne({ _id: req.user.id })
-      res.json({ msg: 'User deleted' })
+      res.json({ msg: 'Account has been permanently deleted' })
    } catch (err) {
       console.error(err.message)
       res.status(500).send('Server Error')
@@ -202,7 +202,6 @@ router.put(
       auth,
       check('school', 'School is required').not().isEmpty(),
       check('degree', 'Degree is required').not().isEmpty(),
-      check('fieldofstudy', 'fieldofstudy is required').not().isEmpty(),
       check('from', 'From date is required').not().isEmpty(),
    ],
    async (req, res) => {

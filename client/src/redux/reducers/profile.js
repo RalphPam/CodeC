@@ -3,6 +3,7 @@ import {
    FAIL2GET_PROFILE,
    CLR_PROFILE,
    CREATE_PROFILE,
+   UPDATE_PROFILE,
 } from '../actions/types'
 
 const initialState = {
@@ -16,6 +17,7 @@ const initialState = {
 export const profile = (state = initialState, action) => {
    const { type, payload } = action
    switch (type) {
+      case UPDATE_PROFILE:
       case CREATE_PROFILE:
       case GET_PROFILE:
          return {

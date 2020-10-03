@@ -8,6 +8,8 @@ import PrivateRoute from './components/PrivateRoute'
 import Dashboard from './components/dashboard/Dashboard'
 import CreateProfile from './components/profile-forms/CreateProfile'
 import NotFound from './components/layout/NotFound'
+import AddExperience from './components/profile-forms/AddExperience'
+import AddEducation from './components/profile-forms/AddEducation'
 import './App.css'
 
 import { setAuthToken } from './utils/setAuthToken'
@@ -42,6 +44,16 @@ export const App = () => {
                         exact
                         path='/create-profile'
                         component={CreateProfile}
+                     />
+                     <PrivateRoute
+                        exact
+                        path='/add-experience'
+                        component={AddExperience}
+                     />
+                     <PrivateRoute
+                        exact
+                        path='/add-education'
+                        component={AddEducation}
                      />
                      <Route path='*' component={NotFound} />
                   </Switch>
