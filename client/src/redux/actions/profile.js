@@ -49,21 +49,15 @@ export const getUserProfile = (userId) => async (dispatch) => {
          type: GET_PROFILE,
          payload: res.data,
       })
-   } catch (err) {
-      dispatch({
-         type: FAIL2GET_PROFILE,
-         payload: { msg: err.response, status: err.response.status },
-      })
-   }
-}
-
-export const getRepos = (username) => async (dispatch) => {
-   try {
-      const res = await axios.get(`/api/profile/github/${username}`)
-      dispatch({
-         type: GET_REPOS,
-         payload: res.data,
-      })
+      if (res.data.githubusername) {
+         const repos = await axios.get(
+            `/api/profile/github/${res.data.githubusername}`
+         )
+         dispatch({
+            type: GET_REPOS,
+            payload: repos.data,
+         })
+      }
    } catch (err) {
       dispatch({
          type: FAIL2GET_PROFILE,

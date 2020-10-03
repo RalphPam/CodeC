@@ -14,6 +14,7 @@ const initialState = {
    repos: [],
    isLoading: true,
    isAllProfilesLoading: true,
+   isReposLoading: true,
    error: {},
 }
 
@@ -38,7 +39,7 @@ export const profile = (state = initialState, action) => {
          return {
             ...state,
             repos: payload,
-            isLoading: false,
+            isReposLoading: false,
          }
       case FAIL2GET_PROFILE:
          return {
