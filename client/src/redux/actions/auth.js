@@ -41,7 +41,6 @@ export const register = ({ name, email, password }) => async (dispatch) => {
       dispatch(loadUser())
    } catch (err) {
       const errors = err.response.data.errors
-      console.log(err.response.data.errors)
       if (errors)
          errors.forEach((error) => dispatch(setAlert(error.msg, 'fail')))
       dispatch({ type: REGISTER_FAILED })

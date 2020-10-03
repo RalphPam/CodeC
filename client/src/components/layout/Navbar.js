@@ -8,6 +8,15 @@ import { clrProfile } from '../../redux/actions/profile'
 const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
    const userLink = (
       <Fragment>
+         <Link to={'/profiles'}>
+            <li>
+               {!isLoading && (
+                  <Fragment>
+                     <i className='fas fa-users'></i> Profiles
+                  </Fragment>
+               )}
+            </li>
+         </Link>
          <Link to={'/dashboard'}>
             <li>
                {!isLoading && (
@@ -36,8 +45,10 @@ const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
    )
    const guestLink = (
       <Fragment>
-         <Link to=''>
-            <li>Profiles</li>
+         <Link to='/profiles'>
+            <li>
+               <i className='fas fa-users'></i> Profiles
+            </li>
          </Link>
          <Link to='/register'>
             <li>Register</li>

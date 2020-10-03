@@ -4,6 +4,8 @@ import {
    CLR_PROFILE,
    CREATE_PROFILE,
    UPDATE_PROFILE,
+   GET_ALL_PROFILES,
+   GET_REPOS,
 } from '../actions/types'
 
 const initialState = {
@@ -11,6 +13,7 @@ const initialState = {
    profiles: [],
    repos: [],
    isLoading: true,
+   isAllProfilesLoading: true,
    error: {},
 }
 
@@ -23,6 +26,18 @@ export const profile = (state = initialState, action) => {
          return {
             ...state,
             profile: payload,
+            isLoading: false,
+         }
+      case GET_ALL_PROFILES:
+         return {
+            ...state,
+            profiles: payload,
+            isAllProfilesLoading: false,
+         }
+      case GET_REPOS:
+         return {
+            ...state,
+            repos: payload,
             isLoading: false,
          }
       case FAIL2GET_PROFILE:

@@ -10,6 +10,7 @@ import CreateProfile from './components/profile-forms/CreateProfile'
 import NotFound from './components/layout/NotFound'
 import AddExperience from './components/profile-forms/AddExperience'
 import AddEducation from './components/profile-forms/AddEducation'
+import AllProfiles from './components/AllProfiles/AllProfiles'
 import './App.css'
 
 import { setAuthToken } from './utils/setAuthToken'
@@ -40,6 +41,7 @@ export const App = () => {
                         path='/dashboard'
                         component={Dashboard}
                      />
+                     <Route exact path='/profiles' component={AllProfiles} />
                      <PrivateRoute
                         exact
                         path='/create-profile'
