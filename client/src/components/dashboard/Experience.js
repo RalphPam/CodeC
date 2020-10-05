@@ -19,11 +19,13 @@ const Experience = ({ experience, deleteExperience }) => {
          </td>
          <td>
             <button onClick={() => deleteExperience(exp._id)}>
-               <i className='far fa-trash-alt'></i>
+               <i className='fas fa-trash-alt'></i>
             </button>
          </td>
       </tr>
    ))
+
+   if (experience.length < 1) return null
 
    return (
       <div>

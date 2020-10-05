@@ -12,6 +12,8 @@ import AddExperience from './components/profile-forms/AddExperience'
 import AddEducation from './components/profile-forms/AddEducation'
 import AllProfiles from './components/AllProfiles/AllProfiles'
 import UserProfile from './components/Profile/UserProfile'
+import Post from './components/post/Post'
+import SinglePost from './components/post/SinglePost'
 import './App.css'
 
 import { setAuthToken } from './utils/setAuthToken'
@@ -33,7 +35,7 @@ export const App = () => {
             <Fragment>
                <Navbar />
                <Alert />
-               <section>
+               <section className='main'>
                   <Switch>
                      <Route exact path='/' component={Login} />
                      <Route exact path='/register' component={Register} />
@@ -44,6 +46,12 @@ export const App = () => {
                      />
                      <Route exact path='/profiles' component={AllProfiles} />
                      <Route exact path='/profile/:id' component={UserProfile} />
+                     <PrivateRoute exact path='/posts' component={Post} />
+                     <PrivateRoute
+                        exact
+                        path='/post/:id'
+                        component={SinglePost}
+                     />
                      <PrivateRoute
                         exact
                         path='/create-profile'

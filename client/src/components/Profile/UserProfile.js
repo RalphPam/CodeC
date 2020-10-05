@@ -15,7 +15,6 @@ const UserProfile = ({
    profile: { profile, isLoading, repos },
    auth,
    getUserProfile,
-   isReposLoading,
 }) => {
    useEffect(() => {
       getUserProfile(match.params.id)
@@ -32,8 +31,12 @@ const UserProfile = ({
             )}
          <ProfileTop profile={profile} />
          <Profile2nd profile={profile} />
-         <Experience experience={profile.experience} />
-         <Education education={profile.education} />
+         {profile.experience.length > 0 && (
+            <Experience experience={profile.experience} />
+         )}
+         {profile.education.length > 0 && (
+            <Education education={profile.education} />
+         )}
          <GithubRepos repos={repos} />
       </div>
    )

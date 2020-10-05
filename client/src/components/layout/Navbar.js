@@ -8,11 +8,20 @@ import { clrProfile } from '../../redux/actions/profile'
 const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
    const userLink = (
       <Fragment>
+         <Link to={'/posts'}>
+            <li>
+               {!isLoading && (
+                  <Fragment>
+                     <i className='fas fa-bell'></i> Posts
+                  </Fragment>
+               )}
+            </li>
+         </Link>
          <Link to={'/profiles'}>
             <li>
                {!isLoading && (
                   <Fragment>
-                     <i className='fas fa-users'></i> Profiles
+                     <i className='fas fa-portrait'></i> Profiles
                   </Fragment>
                )}
             </li>
@@ -47,23 +56,29 @@ const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
       <Fragment>
          <Link to='/profiles'>
             <li>
-               <i className='fas fa-users'></i> Profiles
+               <i className='fas fa-portrait'></i> Profiles
             </li>
          </Link>
          <Link to='/register'>
-            <li>Register</li>
+            <li>
+               <i className='fas fa-user-plus'></i>Register
+            </li>
          </Link>
          <Link to='/'>
-            <li>Login</li>
+            <li>
+               <i className='fas fa-sign-in-alt'></i>Login
+            </li>
          </Link>
       </Fragment>
    )
    return (
-      <nav>
+      <nav className='navbar'>
          <Link to={isAuthenticated ? '/dashboard' : '/'}>
-            <h1>Logo</h1>
+            <h1>
+               <i className='fas fa-hat-wizard'></i> CODEC
+            </h1>
          </Link>
-         <ul>{isAuthenticated ? userLink : guestLink}</ul>
+         <ul className='nav-links'>{isAuthenticated ? userLink : guestLink}</ul>
       </nav>
    )
 }

@@ -19,11 +19,13 @@ const Education = ({ education, deleteEducation }) => {
          </td>
          <td>
             <button onClick={() => deleteEducation(educ._id)}>
-               <i className='far fa-trash-alt'></i>
+               <i className='fas fa-trash-alt'></i>
             </button>
          </td>
       </tr>
    ))
+
+   if (education.length < 1) return null
 
    return (
       <div>

@@ -32,16 +32,18 @@ const Dashboard = ({
          <DashboardActions />
          <Experience />
          <Education />
-         <button onClick={() => deleteAccount()}>
-            <i className='fas fa-user-slash'></i> Delete Account
-         </button>
       </Fragment>
    )
 
    return (
       <Fragment>
          <h1>Welcome {user && user.name}</h1>
-         {profile === null ? noProfile : withProfile}
+         {profile === null || profile.status === 'None'
+            ? noProfile
+            : withProfile}
+         <button onClick={() => deleteAccount()}>
+            <i className='fas fa-user-slash'></i> Delete Account
+         </button>
       </Fragment>
    )
 }

@@ -5,6 +5,7 @@ const config = require('config')
 const auth = require('../../middleware/auth')
 const Profile = require('../../models/Profile')
 const User = require('../../models/User')
+const Post = require('../../models/Post')
 const { check, validationResult } = require('express-validator')
 
 router.get('/me', auth, async (req, res) => {
@@ -129,6 +130,7 @@ router.delete('/', auth, async (req, res) => {
    try {
       await Profile.deleteOne({ user: req.user.id })
       await User.deleteOne({ _id: req.user.id })
+      await Post.deleteMany({ user: req.user.id })
       res.json({ msg: 'Account has been permanently deleted' })
    } catch (err) {
       console.error(err.message)

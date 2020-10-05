@@ -21,7 +21,7 @@ export const getCurrentProfile = () => async (dispatch) => {
    } catch (err) {
       dispatch({
          type: FAIL2GET_PROFILE,
-         payload: { msg: err.response, status: err.response.status },
+         payload: { msg: err.response.statusText, status: err.response.status },
       })
    }
 }
@@ -36,7 +36,7 @@ export const getAllProfiles = () => async (dispatch) => {
    } catch (err) {
       dispatch({
          type: FAIL2GET_PROFILE,
-         payload: { msg: err.response, status: err.response.status },
+         payload: { msg: err.response.statusText, status: err.response.status },
       })
    }
 }
@@ -61,7 +61,7 @@ export const getUserProfile = (userId) => async (dispatch) => {
    } catch (err) {
       dispatch({
          type: FAIL2GET_PROFILE,
-         payload: { msg: err.response, status: err.response.status },
+         payload: { msg: err.response.statusText, status: err.response.status },
       })
    }
 }
@@ -85,13 +85,9 @@ export const createProfile = (userData, history, edit) => async (dispatch) => {
          type: CREATE_PROFILE,
          payload: res.data,
       })
-      dispatch(
-         setAlert(
-            `Profile successfully ${edit ? 'updated' : 'created'}`,
-            'success'
-         )
-      )
-      if (!edit) {
+      edit && dispatch(setAlert('Profile successfully updated', 'success'))
+
+      if (!edit && history !== null) {
          history.push('/dashboard')
       }
    } catch (err) {
@@ -156,7 +152,7 @@ export const deleteExperience = (id) => async (dispatch) => {
    } catch (err) {
       dispatch({
          type: FAIL2GET_PROFILE,
-         payload: { msg: err.response, status: err.response.status },
+         payload: { msg: err.response.statusText, status: err.response.status },
       })
    }
 }
@@ -172,7 +168,7 @@ export const deleteEducation = (id) => async (dispatch) => {
    } catch (err) {
       dispatch({
          type: FAIL2GET_PROFILE,
-         payload: { msg: err.response, status: err.response.status },
+         payload: { msg: err.response.statusText, status: err.response.status },
       })
    }
 }
@@ -187,7 +183,10 @@ export const deleteAccount = () => async (dispatch) => {
       } catch (err) {
          dispatch({
             type: FAIL2GET_PROFILE,
-            payload: { msg: err.response, status: err.response.status },
+            payload: {
+               msg: err.response.statusText,
+               status: err.response.status,
+            },
          })
       }
    }

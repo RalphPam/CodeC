@@ -5,7 +5,7 @@ const GithubRepos = ({ repos }) => {
    if (repos.length === 0) return null
    return (
       <div>
-         <h3>Github Repos</h3>
+         <h2>Github Repos</h2>
          {repos.map((repo) => (
             <div key={repo.id}>
                <div>

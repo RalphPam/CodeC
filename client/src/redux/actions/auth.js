@@ -9,7 +9,9 @@ import {
 } from './types'
 import axios from 'axios'
 import { setAlert } from './alert'
+import { createProfile } from './profile'
 import { setAuthToken } from '../../utils/setAuthToken'
+import { clearPosts } from './post'
 
 export const loadUser = () => async (dispatch) => {
    if (localStorage.token) {
@@ -39,6 +41,7 @@ export const register = ({ name, email, password }) => async (dispatch) => {
       const res = await axios.post('/api/users', body, config)
       dispatch({ type: REGISTER_SUCCESS, payload: res.data })
       dispatch(loadUser())
+      dispatch(createProfile({ status: 'None', skills: 'None' }, null, null))
    } catch (err) {
       const errors = err.response.data.errors
       if (errors)
@@ -68,4 +71,5 @@ export const login = ({ email, password }) => async (dispatch) => {
 
 export const logout = () => async (dispatch) => {
    dispatch({ type: LOGOUT })
+   dispatch(clearPosts())
 }
