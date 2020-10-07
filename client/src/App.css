@@ -1103,4 +1103,7 @@ body {
    .not-found-link {
       font-size: 20px;
    }
+   .social-profile {
+      display: flex;
+   }
 }
