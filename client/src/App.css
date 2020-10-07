@@ -32,6 +32,10 @@ body {
    padding-top: 30vh;
 }
 
+.social-profile {
+   display: flex;
+}
+
 .spinner {
    border: 16px solid whitesmoke;
    border-top: 16px solid #18191a;
@@ -1102,8 +1106,5 @@ body {
    }
    .not-found-link {
       font-size: 20px;
-   }
-   .social-profile {
-      display: flex;
    }
 }
