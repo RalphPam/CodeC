@@ -8,29 +8,32 @@ import { clrProfile } from '../../redux/actions/profile'
 const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
    const userLink = (
       <Fragment>
-         <Link to={'/posts'}>
+         <Link to={'/posts'} className='link'>
             <li>
                {!isLoading && (
                   <Fragment>
-                     <i className='fas fa-bell'></i> Posts
+                     <i className='fas fa-bell'></i>
+                     <span> Posts</span>
                   </Fragment>
                )}
             </li>
          </Link>
-         <Link to={'/profiles'}>
+         <Link to={'/profiles'} className='link'>
             <li>
                {!isLoading && (
                   <Fragment>
-                     <i className='fas fa-portrait'></i> Profiles
+                     <i className='fab fa-black-tie'></i>
+                     <span> Professionals</span>
                   </Fragment>
                )}
             </li>
          </Link>
-         <Link to={'/dashboard'}>
+         <Link to={'/dashboard'} className='link'>
             <li>
                {!isLoading && (
                   <Fragment>
-                     <i className='fas fa-user'></i> Dashboard
+                     <i className='fas fa-user'></i>
+                     <span> Dashboard</span>
                   </Fragment>
                )}
             </li>
@@ -41,11 +44,13 @@ const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
                logout()
                clrProfile()
             }}
+            className='link'
          >
             <li>
                {!isLoading && (
                   <Fragment>
-                     <i className='fas fa-sign-out-alt'></i> Logout
+                     <i className='fas fa-sign-out-alt'></i>
+                     <span> Logout</span>
                   </Fragment>
                )}
             </li>
@@ -54,28 +59,31 @@ const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
    )
    const guestLink = (
       <Fragment>
-         <Link to='/profiles'>
+         <Link to='/profiles' className='link'>
             <li>
-               <i className='fas fa-portrait'></i> Profiles
+               <i className='fab fa-black-tie'></i>
+               <span> Professionals</span>
             </li>
          </Link>
-         <Link to='/register'>
+         <Link to='/register' className='link'>
             <li>
-               <i className='fas fa-user-plus'></i>Register
+               <i className='fas fa-user-plus'></i>
+               <span> Register</span>
             </li>
          </Link>
-         <Link to='/'>
+         <Link to='/' className='link'>
             <li>
-               <i className='fas fa-sign-in-alt'></i>Login
+               <i className='fas fa-sign-in-alt'></i>
+               <span> Login</span>
             </li>
          </Link>
       </Fragment>
    )
    return (
       <nav className='navbar'>
-         <Link to={isAuthenticated ? '/dashboard' : '/'}>
+         <Link to={isAuthenticated ? '/dashboard' : '/'} className='logo'>
             <h1>
-               <i className='fas fa-hat-wizard'></i> CODEC
+               <i className='fas fa-hat-wizard'></i> CodeC
             </h1>
          </Link>
          <ul className='nav-links'>{isAuthenticated ? userLink : guestLink}</ul>

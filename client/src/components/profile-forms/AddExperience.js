@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
@@ -22,15 +22,16 @@ const AddExperience = ({ addExperience, history }) => {
       addExperience({ ...userData }, history)
    }
    return (
-      <Fragment>
-         <h1>Add An Experience</h1>
-         <p>
+      <div>
+         <h1 className='header'>Add An Experience</h1>
+         <p className='header-label'>
             <i className='fas fa-code-branch'></i> Add any developer/programming
             positions that you have had in the past
          </p>
          <form className='form' onSubmit={(e) => submitHandler(e)}>
             <div className='form-group'>
                <input
+                  className='input-form'
                   type='text'
                   placeholder='Job Title (Required)'
                   name='title'
@@ -41,6 +42,7 @@ const AddExperience = ({ addExperience, history }) => {
             </div>
             <div className='form-group'>
                <input
+                  className='input-form'
                   type='text'
                   placeholder='Company (Required)'
                   name='company'
@@ -51,6 +53,7 @@ const AddExperience = ({ addExperience, history }) => {
             </div>
             <div className='form-group'>
                <input
+                  className='input-form'
                   type='text'
                   placeholder='Location'
                   name='location'
@@ -61,6 +64,7 @@ const AddExperience = ({ addExperience, history }) => {
             <div className='form-group'>
                <h4>From Date</h4>
                <input
+                  className='input-form'
                   type='date'
                   name='from'
                   value={from}
@@ -70,6 +74,7 @@ const AddExperience = ({ addExperience, history }) => {
             <div className='form-group'>
                <p>
                   <input
+                     className='input-form'
                      type='checkbox'
                      name='current'
                      value={current}
@@ -84,6 +89,7 @@ const AddExperience = ({ addExperience, history }) => {
             <div className='form-group'>
                <h4>To Date</h4>
                <input
+                  className='input-form'
                   type='date'
                   name='to'
                   value={to}
@@ -93,16 +99,21 @@ const AddExperience = ({ addExperience, history }) => {
             </div>
             <div className='form-group'>
                <textarea
+                  className='textarea'
                   name='description'
                   placeholder='Job Description'
                   value={description}
                   onChange={(e) => onChangeHandler(e)}
                ></textarea>
             </div>
-            <input type='submit' value='Save' />
-            <Link to='/dashboard'>Go Back</Link>
+            <div className='submit-container'>
+               <Link className='back' to='/dashboard'>
+                  <i className='fas fa-backward'></i>
+               </Link>
+               <input className='submit-btn' type='submit' value='Save' />
+            </div>
          </form>
-      </Fragment>
+      </div>
    )
 }
 

@@ -4,12 +4,12 @@ import Moment from 'react-moment'
 
 const Experience = ({ experience }) => {
    return (
-      <div>
-         <h2>Experience</h2>
+      <div className='credentials-exp'>
+         <h2 className='header-credential'>Experience</h2>
          {experience.length > 0
             ? experience.map((exp, index) => (
                  <div key={index}>
-                    {index > 0 ? <hr /> : null}
+                    {index > 0 ? <div className='space' /> : null}
                     <h3>{exp.company}</h3>
                     <p>
                        <Moment format='MM/DD/YYYY'>{exp.from}</Moment> -{' '}

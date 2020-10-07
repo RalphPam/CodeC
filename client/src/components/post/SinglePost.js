@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Link } from 'react-router-dom'
@@ -22,8 +22,10 @@ const SinglePost = ({
    }, [getPost, match.params.id])
    if (!post) return <Spinner />
    return (
-      <Fragment>
-         <Link to='/posts'>Back to Posts</Link>
+      <div className='comments-page'>
+         <Link className='back' style={{ display: 'inline-block' }} to='/posts'>
+            <i className='fas fa-backward'></i>
+         </Link>
          <PostItem post={post} isDiscussion={true} />
          <CreatePost
             isDiscussion={true}
@@ -40,7 +42,7 @@ const SinglePost = ({
                   deleteComment={deleteComment}
                />
             ))}
-      </Fragment>
+      </div>
    )
 }
 

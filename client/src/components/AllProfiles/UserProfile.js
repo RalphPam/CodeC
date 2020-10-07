@@ -12,24 +12,31 @@ const UserProfile = ({
    },
 }) => {
    return (
-      <div>
-         <img src={avatar} alt='User Avatar' />
-         <div>
-            <h2>{name}</h2>
-            <p>
-               {status} {company && <span>at {company}</span>}
-            </p>
-            <p>{location && <span>{location}</span>}</p>
-            <Link to={`/profile/${_id}`}>View Profile</Link>
+      <Link className='view-profile' to={`/profile/${_id}`}>
+         <div className='profile-item'>
+            <div className='avatar-container'>
+               <img className='profile-avatar' src={avatar} alt='User Avatar' />
+            </div>
+            <div className='details-container'>
+               <div className='profile-item-top'>
+                  <div>
+                     <h2 className='name'>{name}</h2>
+                     <p className='status'>
+                        {status} {company && <span>at {company}</span>}
+                     </p>
+                     <p className='location'>
+                        {location && <span>{location}</span>}
+                     </p>
+                  </div>
+               </div>
+               <ul className='profile-skills'>
+                  {skills.map((skill, index) => (
+                     <li key={index}>{skill}</li>
+                  ))}
+               </ul>
+            </div>
          </div>
-         <ul>
-            {skills.slice(0, 4).map((skill, index) => (
-               <li key={index}>
-                  <i className='fas fa-check'></i> {skill}
-               </li>
-            ))}
-         </ul>
-      </div>
+      </Link>
    )
 }
 

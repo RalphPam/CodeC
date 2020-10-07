@@ -10,12 +10,16 @@ const ProfileTop = ({ profile }) => {
    } = profile
    if (!profile) return <Spinner />
    return (
-      <div>
-         <img src={avatar} alt='User Avatar' />
+      <div className='profile-top'>
+         <img
+            className='profile-avatar-single'
+            src={avatar}
+            alt='User Avatar'
+         />
          <div>
-            <h1>{name}</h1>
-            <h3>{status}</h3>
-            {bio && <p>{bio}</p>}
+            <h1 className='profile-name'>{name}</h1>
+            <h3 className='profile-status'>{status}</h3>
+            {bio && <p className='profile-bio'>{bio}</p>}
          </div>
       </div>
    )

@@ -7,9 +7,9 @@ import { deleteExperience } from '../../redux/actions/profile'
 const Experience = ({ experience, deleteExperience }) => {
    const experiences = experience.map((exp) => (
       <tr key={exp._id}>
-         <td>{exp.company}</td>
-         <td>{exp.title}</td>
-         <td>
+         <td className='table-element'>{exp.company}</td>
+         <td className='table-element'>{exp.title}</td>
+         <td className='table-element'>
             <Moment format='MM/DD/YYYY'>{exp.from}</Moment> -{' '}
             {exp.to === null ? (
                'Current'
@@ -17,8 +17,11 @@ const Experience = ({ experience, deleteExperience }) => {
                <Moment format='MM/DD/YYYY'>{exp.to}</Moment>
             )}
          </td>
-         <td>
-            <button onClick={() => deleteExperience(exp._id)}>
+         <td className='table-element'>
+            <button
+               className='trashcan'
+               onClick={() => deleteExperience(exp._id)}
+            >
                <i className='fas fa-trash-alt'></i>
             </button>
          </td>
@@ -29,13 +32,14 @@ const Experience = ({ experience, deleteExperience }) => {
 
    return (
       <div>
-         <table>
+         <h1 className='table-title'>Experience</h1>
+         <table className='table'>
             <thead>
                <tr>
-                  <th>Company</th>
-                  <th>Title</th>
-                  <th>Years</th>
-                  <th></th>
+                  <th className='table-element'>Company</th>
+                  <th className='table-element'>Title</th>
+                  <th className='table-element'>Years</th>
+                  <th className='table-element'></th>
                </tr>
             </thead>
             <tbody>{experiences}</tbody>

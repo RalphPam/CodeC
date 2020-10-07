@@ -4,12 +4,12 @@ import Moment from 'react-moment'
 
 const Education = ({ education }) => {
    return (
-      <div>
-         <h2>Education</h2>
+      <div className='credentials-edu'>
+         <h2 className='header-credential'>Education</h2>
          {education.length > 0
             ? education.map((educ, index) => (
                  <div key={index}>
-                    {index > 0 ? <hr /> : null}
+                    {index > 0 ? <div className='space' /> : null}
                     <h3>{educ.school}</h3>
                     <p>
                        <Moment format='MM/DD/YYYY'>{educ.from}</Moment> -{' '}

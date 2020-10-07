@@ -1,6 +1,40 @@
+:root {
+   --purple: #6c63ff;
+   --red: #fa1616;
+   --green: #55e675;
+}
+
+* {
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+   font-family: 'Poppins', sans-serif;
+}
+
+input {
+   outline-color: var(--purple);
+}
+
+textarea {
+   outline-color: var(--purple);
+   resize: none;
+}
+
+body {
+   background-color: #18191a;
+   color: whitesmoke;
+}
+
+.spinner-container {
+   height: 100%;
+   display: flex;
+   justify-content: center;
+   padding-top: 30vh;
+}
+
 .spinner {
-   border: 16px solid #f3f3f3;
-   border-top: 16px solid black;
+   border: 16px solid whitesmoke;
+   border-top: 16px solid #18191a;
    border-radius: 50%;
    width: 120px;
    height: 120px;
@@ -16,6 +50,1057 @@
    }
 }
 
+.main {
+   display: flex;
+   justify-content: center;
+   padding: 100px 50px 0 50px;
+   position: relative;
+}
+
 .navbar {
    display: flex;
+   justify-content: space-between;
+   align-items: center;
+   width: 100%;
+   padding: 15px 10%;
+   background-color: #242526;
+   border-bottom: 1.5px solid whitesmoke;
+   position: fixed;
+   z-index: 10;
+}
+
+.nav-links {
+   display: flex;
+   list-style: none;
+}
+
+.nav-links .link,
+.logo {
+   text-decoration: none;
+   color: whitesmoke;
+   line-height: 100%;
+}
+
+.logo i {
+   color: var(--purple);
+}
+
+.logo {
+   font-size: 20px;
+}
+
+.logo h1 {
+   font-family: 'Sansita Swashed', cursive;
+   font-weight: lighter;
+}
+
+.link {
+   font-size: 20px;
+   margin-left: 30px;
+   border-top: 1px solid #242526;
+   border-bottom: 1px solid #242526;
+   padding: 5px 0;
+   transition: border 0.2s ease-in;
+}
+
+.link:hover {
+   border-bottom: 1px solid whitesmoke;
+}
+
+.link i {
+   font-size: 20px;
+   margin-right: 5px;
+   color: var(--purple);
+}
+
+.login-page,
+.register-page {
+   display: flex;
+   justify-content: center;
+   padding-top: 130px;
+}
+
+.register-page {
+   justify-content: space-around;
+   padding-top: 70px;
+}
+
+.login-img {
+   margin-right: 100px;
+   flex: 2;
+}
+
+.register-img {
+   margin-left: 100px;
+}
+
+.login-img img,
+.register-img img {
+   width: 100%;
+}
+
+.login-form {
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   flex: 1;
+}
+
+.login-form form {
+   display: flex;
+   flex-direction: column;
+}
+
+.login {
+   font-size: 20px;
+   border: none;
+   margin-bottom: 10px;
+   border-radius: 5px;
+   padding: 5px;
+}
+
+.register {
+   width: 500px;
+   font-size: 20px;
+   border: none;
+   margin-top: 20px;
+   border-radius: 5px;
+   padding: 5px;
+}
+
+.register-btn {
+   color: whitesmoke;
+   border: none;
+   border-radius: 5px;
+   margin: 20px 0;
+   padding: 5px;
+   width: 500px;
+   background-color: var(--purple);
+   outline: none;
+   font-size: 20px;
+   cursor: pointer;
+}
+
+.login-btn {
+   color: whitesmoke;
+   border: none;
+   border-radius: 5px;
+   padding: 5px;
+   background-color: var(--purple);
+   outline: none;
+   font-size: 20px;
+   cursor: pointer;
+}
+
+.sign-up,
+.sign-in {
+   color: var(--purple);
+   text-decoration: none;
+   display: inline-block;
+}
+
+.sign-in:hover,
+.sign-up:hover {
+   text-decoration: underline;
+   text-decoration-color: whitesmoke;
+}
+
+.already {
+   font-size: 20px;
+   margin-bottom: 5px;
+}
+
+.header {
+   font-size: 50px;
+}
+
+.header-label {
+   font-size: 20px;
+}
+
+.form-register {
+   display: flex;
+   flex-direction: column;
+}
+
+.profile-item {
+   margin-top: 30px;
+   width: 100%;
+   display: flex;
+   padding: 30px 50px;
+   background-color: #242526;
+   border-radius: 10px;
+   transition: all 0.3s ease-out;
+}
+
+.avatar-container {
+   flex: 1;
+}
+
+.details-container {
+   flex: 3;
+}
+
+.profile-item:hover {
+   box-shadow: rgba(245, 245, 245, 0.2) 1px 1px 5px 5px;
+}
+
+.profile-avatar {
+   margin-right: 40px;
+   border-radius: 50%;
+}
+
+.profiles-page {
+   width: 800px;
+   margin: 0 auto 70px auto;
+}
+
+.name {
+   font-size: 35px;
+   color: whitesmoke;
+}
+
+.status {
+   font-size: 22px;
+   font-size: whitesmoke;
+}
+
+.location {
+   font-size: 22px;
+}
+
+.profile-skills {
+   list-style: none;
+   word-break: break-all;
+}
+
+.profile-skills li {
+   display: inline-block;
+   font-size: 18px;
+   margin-right: 5px;
+   background-color: var(--purple);
+   padding: 2px 7px;
+   border-radius: 15px;
+   color: whitesmoke;
+   margin-top: 10px;
+}
+
+.profile-item-top {
+   display: flex;
+}
+
+.profile-item div {
+   width: 100%;
+}
+
+.view-profile {
+   text-decoration: none;
+   color: whitesmoke;
+}
+
+.dashboard-actions {
+   text-decoration: none;
+   color: whitesmoke;
+   font-size: 20px;
+   margin-right: 20px;
+   padding: 5px 10px;
+   background-color: var(--purple);
+   border-radius: 5px;
+   transition: all 0.2s ease-in;
+}
+
+.dashboard-actions:hover {
+   background-color: whitesmoke;
+   color: var(--purple);
+}
+
+.actions-container {
+   margin: 20px 0 30px 0;
+}
+
+.table-element {
+   background-color: #242526;
+   padding: 10px 30px;
+   border-radius: 1px;
+   font-size: 20px;
+}
+
+.trashcan {
+   font-size: 25px;
+   background-color: transparent;
+   outline: none;
+   border: none;
+   color: var(--red);
+   cursor: pointer;
+}
+
+.delete-account {
+   cursor: pointer;
+   font-size: 20px;
+   outline: none;
+   border: none;
+   padding: 5px 10px;
+   border-radius: 5px;
+   background-color: var(--red);
+   color: whitesmoke;
+}
+
+.delete-account:hover {
+   background-color: whitesmoke;
+   color: var(--red);
+}
+
+.trashcan:hover {
+   transform: scale(1.2, 1.2);
+}
+
+.table {
+   margin-bottom: 30px;
+}
+
+.table-title {
+   font-size: 35px;
+   margin-bottom: 20px;
+}
+
+.peace {
+   animation: peace 0.8s linear;
+   color: var(--purple);
+}
+
+@keyframes peace {
+   0% {
+      transform: rotate(10deg);
+   }
+   10% {
+      transform: rotate(-10deg);
+   }
+   30% {
+      transform: rotate(10deg);
+   }
+   50% {
+      transform: rotate(-10deg);
+   }
+   70% {
+      transform: rotate(10deg);
+   }
+   90% {
+      transform: rotate(-10deg);
+   }
+   100% {
+      transform: rotate(0deg);
+   }
+}
+
+.form-group {
+   display: flex;
+   flex-direction: column;
+   margin-top: 10px;
+   font-size: 20px;
+}
+
+.input-form {
+   font-size: 20px;
+}
+
+.textarea {
+   font-size: 20px;
+   height: 140px;
+}
+
+.symbol {
+   color: var(--purple);
+}
+
+.social-btn {
+   margin-top: 10px;
+}
+
+.social-btn button {
+   outline: none;
+   border: none;
+   background-color: var(--purple);
+   color: whitesmoke;
+   font-size: 20px;
+   border-radius: 5px;
+   padding: 5px;
+   margin-right: 10px;
+   cursor: pointer;
+   transition: transform 0.1s ease-out;
+}
+
+.social-btn button:hover {
+   transform: scale(1.05, 1.05);
+}
+
+.social-btn small {
+   font-size: 18px;
+}
+
+.submit-btn {
+   border: none;
+   outline: none;
+   background-color: var(--green);
+   color: whitesmoke;
+   border-radius: 5px;
+   font-size: 20px;
+   padding: 5px 20px;
+   cursor: pointer;
+   margin-left: 20px;
+   font-weight: bold;
+   transition: transform 0.1s ease-out;
+}
+
+.submit-btn:hover {
+   transform: scale(1.1, 1.1);
+}
+
+.back {
+   color: whitesmoke;
+   font-size: 20px;
+   background-color: var(--purple);
+   border-radius: 5px;
+   padding: 5px 25px 5px 20px;
+   transition: transform 0.1s ease-out;
+}
+
+.back:hover {
+   transform: scale(1.1, 1.1);
+}
+
+.submit-container {
+   width: 100%;
+   display: flex;
+   margin-top: 10px;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.social-input {
+   display: flex;
+   margin: 20px 0;
+   align-items: center;
+}
+
+.social-link {
+   flex: 10;
+   font-size: 20px;
+}
+
+.social-logo {
+   flex: 1;
+   font-size: 30px;
+   color: whitesmoke;
+}
+
+.create-profile-page {
+   margin-bottom: 70px;
+}
+
+.post-form {
+   display: flex;
+   flex-direction: column;
+   margin-top: 20px;
+}
+
+.post-area {
+   resize: none;
+   font-size: 20px;
+   height: 140px;
+   border-radius: 5px;
+   padding: 5px;
+}
+
+.post-submit {
+   font-size: 20px;
+   padding: 5px;
+   outline: none;
+   border-radius: 5px;
+   border: none;
+   margin-top: 10px;
+   color: whitesmoke;
+   background-color: var(--purple);
+   cursor: pointer;
+   font-weight: bold;
+   transition: box-shadow 0.2s ease-in;
+}
+
+.post-submit:hover {
+   box-shadow: whitesmoke 0px 0px 2px 2px;
+}
+
+.post-top {
+   display: flex;
+   justify-content: space-between;
+}
+
+.post-link {
+   display: flex;
+   text-decoration: none;
+}
+
+.post-link div {
+   flex: 1;
+}
+
+.post-avatar {
+   width: 100%;
+   border-radius: 50%;
+}
+
+.post-name {
+   color: whitesmoke;
+   flex: 3;
+   margin-left: 10px;
+   font-size: 25px;
+}
+
+.post-btn-del {
+   height: 100%;
+   font-size: 20px;
+   background-color: transparent;
+   border: none;
+   outline: none;
+   color: var(--red);
+   cursor: pointer;
+}
+
+.post-btn-del:hover {
+   transform: scale(1.2, 1.2);
+}
+
+.post-text {
+   margin-top: 10px;
+   margin-bottom: 10px;
+}
+
+.post {
+   margin-top: 20px;
+   background-color: #242526;
+   width: 700px;
+   padding: 30px;
+   border-radius: 5px;
+}
+
+.post-bottom {
+   display: flex;
+   justify-content: space-between;
+   align-items: flex-end;
+}
+
+.heart {
+   font-size: 20px;
+   color: var(--purple);
+   background-color: transparent;
+   cursor: pointer;
+   outline: none;
+   border: none;
+}
+
+.heart:hover {
+   transform: scale(1.2, 1.2);
+}
+
+.comment {
+   color: #32e0c4;
+   font-size: 20px;
+   margin-left: 30px;
+   text-decoration: none;
+   display: inline-block;
+}
+
+.comment:hover {
+   transform: scale(1.2, 1.2);
+}
+
+.header-post {
+   text-align: center;
+   font-size: 30px;
+}
+
+.post-page,
+.comments-page {
+   margin-bottom: 70px;
+}
+
+.single-profile-page {
+   width: 1000px;
+   margin-bottom: 70px;
+}
+
+.backprofile {
+   text-decoration: none;
+   margin-right: 10px;
+   padding: 5px 10px;
+   color: whitesmoke;
+   background-color: var(--purple);
+   margin-bottom: 20px;
+   border-radius: 5px;
+   transition: all 0.2s ease-in;
+}
+
+.backprofile:hover {
+   color: var(--purple);
+   background-color: whitesmoke;
+}
+
+.profile-top {
+   margin-top: 50px;
+   display: flex;
+   align-items: center;
+}
+
+.profile-avatar-single {
+   border-radius: 50%;
+   margin-right: 40px;
+}
+
+.profile-name {
+   color: var(--purple);
+   font-size: 35px;
+}
+
+.profile-status {
+   font-size: 22px;
+}
+
+.profile-bio {
+   font-size: 18px;
+}
+
+.profile-2 {
+   display: flex;
+   flex-direction: column;
+   margin-top: 20px;
+}
+
+.first-row,
+.second-row {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 5px;
+}
+
+.social-profile {
+   list-style: none;
+   margin-right: 10px;
+}
+
+.social-profile li {
+   font-size: 30px;
+   margin-right: 10px;
+}
+
+.social-profile a {
+   color: var(--purple);
+   display: inline-block;
+}
+
+.social-profile a:hover {
+   transform: scale(1.1, 1.1);
+}
+
+.location-profile {
+   font-size: 20px;
+   display: flex;
+   align-items: center;
+   margin-left: 10px;
+}
+
+.location-profile i {
+   color: var(--purple);
+   font-size: 30px;
+   margin-right: 10px;
+}
+
+.github-profile a {
+   text-decoration: none;
+   font-size: 20px;
+   color: whitesmoke;
+   display: flex;
+   align-items: center;
+   margin-right: 10px;
+}
+
+.github-profile:hover {
+   transform: scale(1.1, 1.1);
+}
+
+.github-profile i {
+   font-size: 20px;
+   color: var(--purple);
+   font-size: 30px;
+   margin-right: 10px;
+}
+
+.website-profile {
+   margin-left: 10px;
+}
+
+.website-profile a {
+   text-decoration: none;
+   color: whitesmoke;
+   font-size: 20px;
+   display: flex;
+   align-items: center;
+}
+
+.website-profile:hover {
+   transform: scale(1.05, 1.05);
+}
+
+.website-profile i {
+   font-size: 30px;
+   color: var(--purple);
+   margin-right: 10px;
+}
+
+.credentials {
+   display: flex;
+   margin: 20px 0;
+}
+
+.credentials-edu,
+.credentials-exp {
+   width: 490px;
+   border: 1px solid var(--purple);
+   border-radius: 10px;
+   padding: 30px;
+}
+
+.credentials-edu {
+   margin-right: 10px;
+}
+
+.credentials-exp {
+   margin-left: 10px;
+}
+
+.space {
+   border-bottom: 1px solid var(--purple);
+   margin: 10px 0;
+}
+
+.header-credential {
+   margin-bottom: 5px;
+}
+
+.repo-link {
+   text-decoration: none;
+   font-size: 20px;
+   color: var(--purple);
+   display: inline-block;
+}
+
+.repo-link:hover {
+   transform: scale(1.1, 1.1);
+}
+
+.repo-li {
+   list-style: none;
+   display: flex;
+}
+
+.repo-li li {
+   margin-right: 20px;
+}
+
+.flex-repos {
+   display: inline-block;
+   width: 400px;
+}
+
+.repos-container {
+   display: flex;
+   align-items: flex-start;
+   margin-bottom: 10px;
+}
+
+.github-page {
+   padding: 30px;
+   border: 1px solid var(--purple);
+   border-radius: 10px;
+}
+
+.space-repo {
+   display: inline-block;
+   width: 110px;
+}
+
+.alert-success {
+   background-color: var(--green);
+   position: absolute;
+   font-size: 20px;
+   color: whitesmoke;
+   padding: 5px 20px;
+   margin-top: 100px;
+   right: 0;
+   transform-origin: right;
+   animation: alert 0.5s ease-out;
+}
+
+.alert-fail {
+   background-color: var(--red);
+   position: absolute;
+   font-size: 20px;
+   color: whitesmoke;
+   padding: 5px 20px;
+   margin-top: 100px;
+   right: 0;
+   transform-origin: right;
+   animation: alert 0.5s ease-out;
+}
+
+@keyframes alert {
+   0% {
+      transform: scaleX(0);
+   }
+   100% {
+      transform: scaleX(1);
+   }
+}
+
+.not-found-page {
+   display: flex;
+   flex-direction: column;
+   text-align: center;
+}
+.not-found-link {
+   text-decoration: none;
+   color: var(--purple);
+   font-size: 25px;
+}
+
+.not-found-link:hover {
+   color: whitesmoke;
+}
+
+@media (max-width: 900px) and (min-width: 750px) {
+   .navbar {
+      padding: 15px 5%;
+   }
+   .link {
+      font-size: 18px;
+   }
+   .alert-fail,
+   .alert-success {
+      margin-top: 70px;
+      padding: 5px 7px;
+   }
+   .single-profile-page {
+      width: 700px;
+   }
+   .credentials-edu,
+   .credentials-exp {
+      width: 340px;
+   }
+   .space-repo {
+      width: 30px;
+   }
+   .flex-repos {
+      width: 300px;
+   }
+   .location-profile span,
+   .github-profile span,
+   .website-profile span {
+      font-size: 16px;
+   }
+}
+
+@media (max-width: 749px) {
+   .link span {
+      display: none;
+   }
+   .link i {
+      padding: 0;
+      margin: 0;
+   }
+   .alert-fail,
+   .alert-success {
+      margin-top: 70px;
+      padding: 5px 7px;
+      font-size: 12px;
+   }
+   .login-img,
+   .register-img {
+      display: none;
+   }
+   .register {
+      width: 330px;
+   }
+   .register-btn {
+      width: 330px;
+   }
+   .register-page {
+      padding-top: 50px;
+   }
+   .header {
+      font-size: 20px;
+   }
+   .header-label,
+   .status,
+   .location {
+      font-size: 14px;
+   }
+   .profile-avatar {
+      width: 50%;
+      margin: 0;
+   }
+   .avatar-container {
+      display: flex;
+      justify-content: center;
+   }
+   .profile-item {
+      padding: 20px;
+      flex-direction: column;
+      justify-content: center;
+      width: 330px;
+   }
+   .name {
+      font-size: 25px;
+      text-align: center;
+   }
+   .profile-skills li {
+      font-size: 16px;
+      display: inline-block;
+   }
+   .header-post {
+      font-size: 20px;
+   }
+   .post-area,
+   .post-submit,
+   .post {
+      width: 330px;
+   }
+   .post-area {
+      font-size: 18px;
+   }
+   .profile-top {
+      flex-direction: column;
+   }
+   .single-profile-page {
+      width: 330px;
+   }
+
+   .location-profile span,
+   .github-profile span,
+   .website-profile span {
+      font-size: 16px;
+   }
+   .credentials {
+      flex-direction: column;
+   }
+   .credentials-edu,
+   .credentials-exp {
+      margin: 0;
+      width: 330px;
+   }
+   .credentials-exp {
+      margin-top: 20px;
+   }
+   .space-repo {
+      display: none;
+   }
+   .flex-repos {
+      width: 100%;
+   }
+   .repo-li {
+      font-size: 14px;
+      margin-right: 5px;
+   }
+   .profile-avatar-single {
+      margin: 0;
+      width: 40%;
+   }
+   .profile-name {
+      text-align: center;
+      font-size: 25px;
+   }
+   .profile-top h3 {
+      font-size: 16px;
+   }
+   .profile-status {
+      text-align: center;
+      margin-bottom: 15px;
+   }
+   .profile-bio {
+      font-size: 15px;
+   }
+   .first-row,
+   .second-row {
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: flex-start;
+   }
+   .social-profile,
+   .location-profile,
+   .github-profile,
+   .website-profile {
+      margin: 0;
+   }
+   .location-profile span,
+   .github-profile span,
+   .website-profile span {
+      font-size: 15px;
+      font-weight: lighter;
+   }
+   .actions-container {
+      width: 330px;
+      margin: 15px 0;
+   }
+   .dashboard-actions {
+      width: 160px;
+      font-size: 12px;
+      padding: 5px;
+      margin-right: 5px;
+   }
+   .table-title {
+      font-size: 16px;
+      margin-bottom: 10px;
+   }
+   .table-element {
+      padding: 5px;
+      font-size: 13px;
+   }
+   .trashcan {
+      font-size: 15px;
+   }
+   .table {
+      margin-bottom: 15px;
+   }
+   .delete-account {
+      margin-bottom: 40px;
+      font-size: 12px;
+      padding: 5px;
+   }
+   .form {
+      width: 340px;
+   }
+   .logo {
+      font-size: 16px;
+   }
+   .input-form,
+   .textarea {
+      font-size: 16px;
+   }
+   small {
+      font-size: 13px;
+   }
+   .social-btn button {
+      font-size: 12px;
+      border-radius: 5px;
+      padding: 5px;
+      margin-right: 5px;
+   }
+   .social-btn small {
+      font-size: 12px;
+   }
+   .back,
+   .submit-btn {
+      font-size: 16px;
+   }
+   .not-found-link {
+      font-size: 20px;
+   }
 }

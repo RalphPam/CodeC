@@ -22,21 +22,31 @@ const UserProfile = ({
    if (!profile) return <Spinner />
 
    return (
-      <div>
-         <Link to='/profiles'>Back to Profiles</Link>
+      <div className='single-profile-page'>
+         <Link className='backprofile' to='/profiles'>
+            Back to Profiles
+         </Link>
          {auth.isAuthenticated &&
             !auth.isLoading &&
             auth.user._id === profile.user._id && (
-               <Link to='/create-profile'>Edit Profile</Link>
+               <Link className='backprofile' to='/create-profile'>
+                  Edit Profile
+               </Link>
             )}
          <ProfileTop profile={profile} />
          <Profile2nd profile={profile} />
-         {profile.experience.length > 0 && (
-            <Experience experience={profile.experience} />
-         )}
-         {profile.education.length > 0 && (
-            <Education education={profile.education} />
-         )}
+         <div className='credentials'>
+            <div>
+               {profile.education.length > 0 && (
+                  <Education education={profile.education} />
+               )}
+            </div>
+            <div>
+               {profile.experience.length > 0 && (
+                  <Experience experience={profile.experience} />
+               )}
+            </div>
+         </div>
          <GithubRepos repos={repos} />
       </div>
    )

@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react'
+import React, { useState } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Spinner from '../layout/Spinner'
@@ -33,56 +33,75 @@ const Register = ({ setAlert, register, isAuthenticated, isLoading }) => {
       return <Redirect to='/dashboard' />
    } else {
       return (
-         <Fragment>
-            <h1>Sign Up</h1>
-            <p>
-               <i className='fas fa-user-plus'></i> Create account
-            </p>
-            <form onSubmit={(e) => submitHandler(e)}>
-               <input
-                  type='text'
-                  placeholder='Name'
-                  name='name'
-                  value={name}
-                  required
-                  onChange={(e) => handler(e)}
-               />
-               <input
-                  type='email'
-                  placeholder='Email Address'
-                  name='email'
-                  value={email}
-                  required
-                  onChange={(e) => handler(e)}
-               />
-               <small>
-                  This site uses Gravatar so if you want a profile image, use a
-                  Gravatar email
-               </small>
-               <input
-                  type='password'
-                  placeholder='Password'
-                  name='password'
-                  value={password}
-                  minLength='6'
-                  required
-                  onChange={(e) => handler(e)}
-               />
-               <input
-                  type='password'
-                  placeholder='Confirm Password'
-                  name='conPassword'
-                  value={conPassword}
-                  minLength='6'
-                  required
-                  onChange={(e) => handler(e)}
-               />
-               <input type='submit' value='Register' />
-            </form>
-            <p>
-               Already have an account? <Link to='/'>Sign In</Link>
-            </p>
-         </Fragment>
+         <div className='register-page'>
+            <div>
+               <h1 className='header'>Sign Up</h1>
+               <p className='header-label'>
+                  <i className='fas fa-user-plus'></i> Create account
+               </p>
+               <form
+                  className='form-register'
+                  onSubmit={(e) => submitHandler(e)}
+               >
+                  <input
+                     className='register'
+                     type='text'
+                     placeholder='Name'
+                     name='name'
+                     value={name}
+                     required
+                     onChange={(e) => handler(e)}
+                  />
+                  <input
+                     className='register'
+                     type='email'
+                     placeholder='Email Address'
+                     name='email'
+                     value={email}
+                     required
+                     onChange={(e) => handler(e)}
+                  />
+                  <small>
+                     This site uses Gravatar so if you want a profile image, use
+                     a Gravatar email
+                  </small>
+                  <input
+                     className='register'
+                     type='password'
+                     placeholder='Password'
+                     name='password'
+                     value={password}
+                     minLength='6'
+                     required
+                     onChange={(e) => handler(e)}
+                  />
+                  <input
+                     className='register'
+                     type='password'
+                     placeholder='Confirm Password'
+                     name='conPassword'
+                     value={conPassword}
+                     minLength='6'
+                     required
+                     onChange={(e) => handler(e)}
+                  />
+                  <input
+                     className='register-btn'
+                     type='submit'
+                     value='Register'
+                  />
+               </form>
+               <p className='already'>
+                  Already have an account?{' '}
+                  <Link className='sign-in' to='/'>
+                     Sign In
+                  </Link>
+               </p>
+            </div>
+            <div className='register-img'>
+               <img src='https://i.ibb.co/NtWWHJj/Group-8.png' alt='connect' />
+            </div>
+         </div>
       )
    }
 }

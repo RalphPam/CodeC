@@ -18,12 +18,17 @@ const Dashboard = ({
       getCurrentProfile()
    }, [getCurrentProfile])
 
-   if (!profile && isLoading) return <Spinner />
+   if (!profile) return <Spinner />
 
    const noProfile = (
       <Fragment>
-         <p>You have not yet setup a profile, please add some info</p>
-         <Link to='/create-profile'>Create Profile</Link>
+         <p className='header-label'>
+            You have not yet setup a profile, please add some info
+         </p>
+         <br />
+         <Link className='dashboard-actions' to='/create-profile'>
+            Create Profile
+         </Link>
       </Fragment>
    )
 
@@ -36,15 +41,15 @@ const Dashboard = ({
    )
 
    return (
-      <Fragment>
-         <h1>Welcome {user && user.name}</h1>
+      <div>
+         <h1 className='header'>Welcome {user && user.name}</h1>
          {profile === null || profile.status === 'None'
             ? noProfile
             : withProfile}
-         <button onClick={() => deleteAccount()}>
+         <button className='delete-account' onClick={() => deleteAccount()}>
             <i className='fas fa-user-slash'></i> Delete Account
          </button>
-      </Fragment>
+      </div>
    )
 }
 

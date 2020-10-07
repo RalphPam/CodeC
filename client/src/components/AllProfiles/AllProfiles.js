@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react'
+import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { getAllProfiles } from '../../redux/actions/profile'
@@ -11,9 +11,9 @@ const AllProfiles = ({ profiles, isLoading, getAllProfiles }) => {
    }, [getAllProfiles])
    if (isLoading) return <Spinner />
    return (
-      <Fragment>
-         <h1>Developers</h1>
-         <p>
+      <div className='profiles-page'>
+         <h1 className='header'>Professionals</h1>
+         <p className='header-label'>
             <i className='fab fa-connectdevelop'></i> Browse and Connect with
             other people
          </p>
@@ -24,7 +24,7 @@ const AllProfiles = ({ profiles, isLoading, getAllProfiles }) => {
          ) : (
             <h3>No Profiles found...</h3>
          )}
-      </Fragment>
+      </div>
    )
 }
 

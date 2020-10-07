@@ -7,9 +7,9 @@ import { deleteEducation } from '../../redux/actions/profile'
 const Education = ({ education, deleteEducation }) => {
    const educations = education.map((educ) => (
       <tr key={educ._id}>
-         <td>{educ.school}</td>
-         <td>{educ.degree}</td>
-         <td>
+         <td className='table-element'>{educ.school}</td>
+         <td className='table-element'>{educ.degree}</td>
+         <td className='table-element'>
             <Moment format='MM/DD/YYYY'>{educ.from}</Moment> -{' '}
             {educ.to === null ? (
                'Current'
@@ -17,8 +17,11 @@ const Education = ({ education, deleteEducation }) => {
                <Moment format='MM/DD/YYYY'>{educ.to}</Moment>
             )}
          </td>
-         <td>
-            <button onClick={() => deleteEducation(educ._id)}>
+         <td className='table-element'>
+            <button
+               className='trashcan'
+               onClick={() => deleteEducation(educ._id)}
+            >
                <i className='fas fa-trash-alt'></i>
             </button>
          </td>
@@ -28,14 +31,15 @@ const Education = ({ education, deleteEducation }) => {
    if (education.length < 1) return null
 
    return (
-      <div>
+      <div className='table'>
+         <h1 className='table-title'>Education</h1>
          <table>
             <thead>
                <tr>
-                  <th>School</th>
-                  <th>Degree</th>
-                  <th>Years</th>
-                  <th></th>
+                  <th className='table-element'>School</th>
+                  <th className='table-element'>Degree</th>
+                  <th className='table-element'>Years</th>
+                  <th className='table-element'></th>
                </tr>
             </thead>
             <tbody>{educations}</tbody>

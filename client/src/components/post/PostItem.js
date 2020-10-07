@@ -35,47 +35,41 @@ const PostItem = ({
 
    const [likeToggle, setLikeToggle] = useState(null)
    return (
-      <div>
-         <div>
-            <Link to={`/profile/${user}`}>
-               <img src={avatar} alt='User Avatar' />
-               <h3>{name}</h3>
+      <div className='post'>
+         <div className='post-top'>
+            <Link className='post-link' to={`/profile/${user}`}>
+               <div>
+                  <img className='post-avatar' src={avatar} alt='User Avatar' />
+               </div>
+               <h3 className='post-name'>{name}</h3>
             </Link>
             {isAuthenticated && user === loginId && (
-               <button onClick={() => deletePost(_id)}>
+               <button className='post-btn-del' onClick={() => deletePost(_id)}>
                   <i className='fas fa-trash-alt'></i>
                </button>
             )}
          </div>
-         <p>{text}</p>
-         <div>
-            <Moment format='LT'>{date}</Moment> &middot;{' '}
-            <Moment format='L'>{date}</Moment>
+         <p className='post-text'>{text}</p>
+         <div className='post-bottom'>
+            <div className='post-date'>
+               <Moment format='LT'>{date}</Moment> &middot;{' '}
+               <Moment format='MM/DD/YYYY'>{date}</Moment>
+            </div>
+            <div>
+               {!isDiscussion && (
+                  <div>
+                     <button className='heart' onClick={likeHandler}>
+                        {likes.length > 0 && likes.length}{' '}
+                        <i className='fas fa-heart'></i>
+                     </button>
+                     <Link className='comment' to={`/post/${_id}`}>
+                        {comments.length > 0 && comments.length}{' '}
+                        <i className='fas fa-comment'></i>
+                     </Link>
+                  </div>
+               )}
+            </div>
          </div>
-         {(likes || comments) && (
-            <div>
-               {comments.length > 0 && (
-                  <p>
-                     {comments.length} Comment{comments.length > 1 && 's'}
-                  </p>
-               )}
-               {likes.length > 0 && (
-                  <p>
-                     {likes.length} Like{likes.length > 1 && 's'}
-                  </p>
-               )}
-            </div>
-         )}
-         {!isDiscussion && (
-            <div>
-               <button onClick={likeHandler}>
-                  <i className='fas fa-heart'></i>
-               </button>
-               <Link to={`/post/${_id}`}>
-                  <i className='fas fa-comment'></i>
-               </Link>
-            </div>
-         )}
       </div>
    )
 }

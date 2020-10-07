@@ -4,7 +4,11 @@ import { connect } from 'react-redux'
 
 const alert = ({ alert }) => {
    if (alert.length > 0)
-      return alert.map((alert) => <div key={alert.id}>{alert.msg}</div>)
+      return alert.map((alert) => (
+         <div className={`alert-${alert.alertType}`} key={alert.id}>
+            <span>{alert.msg}</span>
+         </div>
+      ))
    else return null
 }
 

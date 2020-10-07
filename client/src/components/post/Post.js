@@ -12,11 +12,15 @@ const Post = ({ post: { AllPosts, isLoading }, getAllPosts, addPost }) => {
    }, [getAllPosts])
    if (isLoading) return <Spinner />
    return (
-      <div>
-         <h1>
-            Welcome to the community <i className='fas fa-hand-peace'></i>
+      <div className='post-page'>
+         <h1 className='header-post'>
+            Welcome to the community <i className='fas fa-hand-peace peace'></i>
          </h1>
-         <CreatePost addPost={addPost} isDiscussion={false} />
+         <CreatePost
+            addPost={addPost}
+            isDiscussion={false}
+            getAllPosts={getAllPosts}
+         />
          {AllPosts &&
             AllPosts.map((post) => (
                <PostItem key={post._id} post={post} isDiscussion={false} />

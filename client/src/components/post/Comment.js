@@ -11,22 +11,27 @@ const Comment = ({
    user_id,
 }) => {
    return (
-      <div>
-         <div>
-            <Link to={`/profile/${user}`}>
-               <img src={avatar} alt='User Avatar' />
-               <h3>{name}</h3>
+      <div className='post'>
+         <div className='post-top'>
+            <Link className='post-link' to={`/profile/${user}`}>
+               <div>
+                  <img className='post-avatar' src={avatar} alt='User Avatar' />
+               </div>
+               <h3 className='post-name'>{name}</h3>
             </Link>
             {isAuthenticated && user_id === user && (
-               <button onClick={() => deleteComment(postId, _id)}>
+               <button
+                  className='post-btn-del'
+                  onClick={() => deleteComment(postId, _id)}
+               >
                   <i className='fas fa-trash-alt'></i>
                </button>
             )}
          </div>
-         <p>{text}</p>
+         <p className='post-text'>{text}</p>
          <div>
             <Moment format='LT'>{date}</Moment> &middot;{' '}
-            <Moment format='L'>{date}</Moment>
+            <Moment format='MM/DD/YYYY'>{date}</Moment>
          </div>
       </div>
    )
