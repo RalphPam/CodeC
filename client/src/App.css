@@ -1107,4 +1107,8 @@ body {
    .not-found-link {
       font-size: 20px;
    }
+   .social-link {
+      font-size: 16px;
+      flex: 6;
+   }
 }
