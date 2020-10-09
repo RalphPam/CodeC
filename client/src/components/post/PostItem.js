@@ -4,6 +4,12 @@ import { connect } from 'react-redux'
 import Moment from 'react-moment'
 import { likePost, unlikePost, deletePost } from '../../redux/actions/post'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+   faTrashAlt,
+   faHeart,
+   faComment,
+} from '@fortawesome/free-solid-svg-icons'
 
 const PostItem = ({
    post: { avatar, name, text, date, likes, comments, user, _id },
@@ -45,7 +51,7 @@ const PostItem = ({
             </Link>
             {isAuthenticated && user === loginId && (
                <button className='post-btn-del' onClick={() => deletePost(_id)}>
-                  <i className='fas fa-trash-alt'></i>
+                  <FontAwesomeIcon icon={faTrashAlt} />
                </button>
             )}
          </div>
@@ -60,11 +66,11 @@ const PostItem = ({
                   <div>
                      <button className='heart' onClick={likeHandler}>
                         {likes.length > 0 && likes.length}{' '}
-                        <i className='fas fa-heart'></i>
+                        <FontAwesomeIcon icon={faHeart} />
                      </button>
                      <Link className='comment' to={`/post/${_id}`}>
                         {comments.length > 0 && comments.length}{' '}
-                        <i className='fas fa-comment'></i>
+                        <FontAwesomeIcon icon={faComment} />
                      </Link>
                   </div>
                )}

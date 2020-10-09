@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { addExperience } from '../../redux/actions/profile'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCodeBranch, faBackward } from '@fortawesome/free-solid-svg-icons'
 
 const AddExperience = ({ addExperience, history }) => {
    const [userData, setUserData] = useState({
@@ -25,8 +27,8 @@ const AddExperience = ({ addExperience, history }) => {
       <div>
          <h1 className='header'>Add An Experience</h1>
          <p className='header-label'>
-            <i className='fas fa-code-branch'></i> Add any developer/programming
-            positions that you have had in the past
+            <FontAwesomeIcon icon={faCodeBranch} /> Add any
+            developer/programming positions that you have had in the past
          </p>
          <form className='form' onSubmit={(e) => submitHandler(e)}>
             <div className='form-group'>
@@ -108,7 +110,7 @@ const AddExperience = ({ addExperience, history }) => {
             </div>
             <div className='submit-container'>
                <Link className='back' to='/dashboard'>
-                  <i className='fas fa-backward'></i>
+                  <FontAwesomeIcon icon={faBackward} />
                </Link>
                <input className='submit-btn' type='submit' value='Save' />
             </div>

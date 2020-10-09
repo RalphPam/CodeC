@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom'
 import DashboardActions from './DashboardActions'
 import Experience from './Experience'
 import Education from './Education'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserSlash } from '@fortawesome/free-solid-svg-icons'
 
 const Dashboard = ({
    getCurrentProfile,
@@ -47,7 +49,7 @@ const Dashboard = ({
             ? noProfile
             : withProfile}
          <button className='delete-account' onClick={() => deleteAccount()}>
-            <i className='fas fa-user-slash'></i> Delete Account
+            <FontAwesomeIcon icon={faUserSlash} /> Delete Account
          </button>
       </div>
    )

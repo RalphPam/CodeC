@@ -4,6 +4,16 @@ import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { logout } from '../../redux/actions/auth'
 import { clrProfile } from '../../redux/actions/profile'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+   faBell,
+   faUserTie,
+   faUser,
+   faSignOutAlt,
+   faUserPlus,
+   faSignInAlt,
+   faHatWizard,
+} from '@fortawesome/free-solid-svg-icons'
 
 const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
    const userLink = (
@@ -12,7 +22,7 @@ const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
             <li>
                {!isLoading && (
                   <Fragment>
-                     <i className='fas fa-bell'></i>
+                     <FontAwesomeIcon className='nav-icon' icon={faBell} />
                      <span> Posts</span>
                   </Fragment>
                )}
@@ -22,7 +32,7 @@ const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
             <li>
                {!isLoading && (
                   <Fragment>
-                     <i className='fab fa-black-tie'></i>
+                     <FontAwesomeIcon className='nav-icon' icon={faUserTie} />
                      <span> Professionals</span>
                   </Fragment>
                )}
@@ -32,7 +42,7 @@ const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
             <li>
                {!isLoading && (
                   <Fragment>
-                     <i className='fas fa-user'></i>
+                     <FontAwesomeIcon className='nav-icon' icon={faUser} />
                      <span> Dashboard</span>
                   </Fragment>
                )}
@@ -49,7 +59,10 @@ const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
             <li>
                {!isLoading && (
                   <Fragment>
-                     <i className='fas fa-sign-out-alt'></i>
+                     <FontAwesomeIcon
+                        className='nav-icon'
+                        icon={faSignOutAlt}
+                     />
                      <span> Logout</span>
                   </Fragment>
                )}
@@ -61,19 +74,19 @@ const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
       <Fragment>
          <Link to='/profiles' className='link'>
             <li>
-               <i className='fab fa-black-tie'></i>
+               <FontAwesomeIcon className='nav-icon' icon={faUserTie} />
                <span> Professionals</span>
             </li>
          </Link>
          <Link to='/register' className='link'>
             <li>
-               <i className='fas fa-user-plus'></i>
+               <FontAwesomeIcon className='nav-icon' icon={faUserPlus} />
                <span> Register</span>
             </li>
          </Link>
          <Link to='/' className='link'>
             <li>
-               <i className='fas fa-sign-in-alt'></i>
+               <FontAwesomeIcon className='nav-icon' icon={faSignInAlt} />
                <span> Login</span>
             </li>
          </Link>
@@ -83,7 +96,8 @@ const Navbar = ({ isAuthenticated, isLoading, logout, clrProfile }) => {
       <nav className='navbar'>
          <Link to={isAuthenticated ? '/dashboard' : '/'} className='logo'>
             <h1>
-               <i className='fas fa-hat-wizard'></i> CodeC
+               <FontAwesomeIcon className='logo-icon' icon={faHatWizard} />{' '}
+               CodeC
             </h1>
          </Link>
          <ul className='nav-links'>{isAuthenticated ? userLink : guestLink}</ul>

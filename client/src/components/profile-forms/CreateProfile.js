@@ -3,6 +3,15 @@ import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 import { createProfile } from '../../redux/actions/profile'
 import { connect } from 'react-redux'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUser, faBackward } from '@fortawesome/free-solid-svg-icons'
+import {
+   faTwitter,
+   faFacebook,
+   faInstagram,
+   faLinkedin,
+   faYoutube,
+} from '@fortawesome/free-brands-svg-icons'
 
 const CreateProfile = ({ createProfile, profile, history }) => {
    const [editToggle, setEditToggle] = useState(null)
@@ -84,8 +93,8 @@ const CreateProfile = ({ createProfile, profile, history }) => {
             {editToggle ? 'Create Your Profile' : 'Edit Profile'}
          </h1>
          <p className='header-label'>
-            <i className='fas fa-user symbol'></i> Let's get some information to
-            make your profile stand out
+            <FontAwesomeIcon icon={faUser} /> Let's get some information to make
+            your profile stand out
          </p>
          <form className='form' onSubmit={(e) => submitHandler(e)}>
             <div className='form-group'>
@@ -186,7 +195,10 @@ const CreateProfile = ({ createProfile, profile, history }) => {
             {addSocial && (
                <Fragment>
                   <div className='social-input'>
-                     <i className='fab fa-twitter social-logo'></i>
+                     <FontAwesomeIcon
+                        className='social-logo'
+                        icon={faTwitter}
+                     />
                      <input
                         className='social-link'
                         type='text'
@@ -198,7 +210,10 @@ const CreateProfile = ({ createProfile, profile, history }) => {
                   </div>
 
                   <div className='social-input'>
-                     <i className='fab fa-facebook social-logo'></i>
+                     <FontAwesomeIcon
+                        className='social-logo'
+                        icon={faFacebook}
+                     />
                      <input
                         className='social-link'
                         type='text'
@@ -210,7 +225,10 @@ const CreateProfile = ({ createProfile, profile, history }) => {
                   </div>
 
                   <div className='social-input'>
-                     <i className='fab fa-youtube social-logo'></i>
+                     <FontAwesomeIcon
+                        className='social-logo'
+                        icon={faYoutube}
+                     />
                      <input
                         className='social-link'
                         type='text'
@@ -222,7 +240,10 @@ const CreateProfile = ({ createProfile, profile, history }) => {
                   </div>
 
                   <div className='social-input'>
-                     <i className='fab fa-linkedin social-logo'></i>
+                     <FontAwesomeIcon
+                        className='social-logo'
+                        icon={faLinkedin}
+                     />
                      <input
                         className='social-link'
                         type='text'
@@ -234,7 +255,10 @@ const CreateProfile = ({ createProfile, profile, history }) => {
                   </div>
 
                   <div className='social-input'>
-                     <i className='fab fa-instagram social-logo'></i>
+                     <FontAwesomeIcon
+                        className='social-logo'
+                        icon={faInstagram}
+                     />
                      <input
                         className='social-link'
                         type='text'
@@ -248,7 +272,7 @@ const CreateProfile = ({ createProfile, profile, history }) => {
             )}
             <div className='submit-container'>
                <Link className='back' to='/dashboard'>
-                  <i className='fas fa-backward'></i>
+                  <FontAwesomeIcon icon={faBackward} />
                </Link>
                <input className='submit-btn' type='submit' value='Save' />
             </div>

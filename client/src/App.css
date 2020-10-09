@@ -85,7 +85,7 @@ body {
    line-height: 100%;
 }
 
-.logo i {
+.logo-icon {
    color: var(--purple);
 }
 
@@ -111,7 +111,7 @@ body {
    border-bottom: 1px solid whitesmoke;
 }
 
-.link i {
+.nav-icon {
    font-size: 20px;
    margin-right: 5px;
    color: var(--purple);
@@ -347,6 +347,7 @@ body {
    border-radius: 5px;
    background-color: var(--red);
    color: whitesmoke;
+   margin-bottom: 40px;
 }
 
 .delete-account:hover {
@@ -476,6 +477,7 @@ body {
    width: 100%;
    display: flex;
    margin-top: 10px;
+   margin-bottom: 40px;
    justify-content: space-between;
    align-items: center;
 }
@@ -712,7 +714,7 @@ body {
    margin-left: 10px;
 }
 
-.location-profile i {
+.location-logo {
    color: var(--purple);
    font-size: 30px;
    margin-right: 10px;
@@ -731,8 +733,7 @@ body {
    transform: scale(1.1, 1.1);
 }
 
-.github-profile i {
-   font-size: 20px;
+.github-logo {
    color: var(--purple);
    font-size: 30px;
    margin-right: 10px;
@@ -754,7 +755,7 @@ body {
    transform: scale(1.05, 1.05);
 }
 
-.website-profile i {
+.website-logo {
    font-size: 30px;
    color: var(--purple);
    margin-right: 10px;

@@ -24,7 +24,7 @@ const UserProfile = ({
    return (
       <div className='single-profile-page'>
          <Link className='backprofile' to='/profiles'>
-            Back to Profiles
+            Back
          </Link>
          {auth.isAuthenticated &&
             !auth.isLoading &&

@@ -3,6 +3,9 @@ import { Link, Redirect } from 'react-router-dom'
 import PropTypes from 'prop-types'
 import Spinner from '../layout/Spinner'
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faUserPlus } from '@fortawesome/free-solid-svg-icons'
+
 import { connect } from 'react-redux'
 import { setAlert } from '../../redux/actions/alert'
 import { register } from '../../redux/actions/auth'
@@ -37,7 +40,7 @@ const Register = ({ setAlert, register, isAuthenticated, isLoading }) => {
             <div>
                <h1 className='header'>Sign Up</h1>
                <p className='header-label'>
-                  <i className='fas fa-user-plus'></i> Create account
+                  <FontAwesomeIcon icon={faUserPlus} /> Create account
                </p>
                <form
                   className='form-register'

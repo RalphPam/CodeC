@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { getAllProfiles } from '../../redux/actions/profile'
 import Spinner from '../layout/Spinner'
 import UserProfile from './UserProfile'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faConnectdevelop } from '@fortawesome/free-brands-svg-icons'
 
 const AllProfiles = ({ profiles, isLoading, getAllProfiles }) => {
    useEffect(() => {
@@ -14,7 +16,7 @@ const AllProfiles = ({ profiles, isLoading, getAllProfiles }) => {
       <div className='profiles-page'>
          <h1 className='header'>Professionals</h1>
          <p className='header-label'>
-            <i className='fab fa-connectdevelop'></i> Browse and Connect with
+            <FontAwesomeIcon icon={faConnectdevelop} /> Browse and Connect with
             other people
          </p>
          {profiles.length > 0 ? (

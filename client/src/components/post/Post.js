@@ -5,6 +5,8 @@ import { getAllPosts, addPost } from '../../redux/actions/post'
 import CreatePost from './CreatePost'
 import PostItem from './PostItem'
 import Spinner from '../layout/Spinner'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faHandPeace } from '@fortawesome/free-solid-svg-icons'
 
 const Post = ({ post: { AllPosts, isLoading }, getAllPosts, addPost }) => {
    useEffect(() => {
@@ -14,7 +16,8 @@ const Post = ({ post: { AllPosts, isLoading }, getAllPosts, addPost }) => {
    return (
       <div className='post-page'>
          <h1 className='header-post'>
-            Welcome to the community <i className='fas fa-hand-peace peace'></i>
+            Welcome to the community{' '}
+            <FontAwesomeIcon className='peace' icon={faHandPeace} />
          </h1>
          <CreatePost
             addPost={addPost}

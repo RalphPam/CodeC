@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { Link, withRouter } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { addEducation } from '../../redux/actions/profile'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faGraduationCap, faBackward } from '@fortawesome/free-solid-svg-icons'
 
 const AddEducation = ({ addEducation, history }) => {
    const [userData, setUserData] = useState({
@@ -33,8 +35,8 @@ const AddEducation = ({ addEducation, history }) => {
       <div>
          <h1 className='header'>Add Education</h1>
          <p className='header-label'>
-            <i className='fas fa-graduation-cap'></i> Add any school or bootcamp
-            that you have attended
+            <FontAwesomeIcon icon={faGraduationCap} /> Add any school or
+            bootcamp that you have attended
          </p>
          <form className='form' onSubmit={(e) => submitHandler(e)}>
             <div className='form-group'>
@@ -116,7 +118,7 @@ const AddEducation = ({ addEducation, history }) => {
             </div>
             <div className='submit-container'>
                <Link className='back' to='/dashboard'>
-                  <i className='fas fa-backward'></i>
+                  <FontAwesomeIcon icon={faBackward} />
                </Link>
                <input className='submit-btn' type='submit' value='Save' />
             </div>

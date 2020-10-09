@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import Moment from 'react-moment'
 import { deleteExperience } from '../../redux/actions/profile'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const Experience = ({ experience, deleteExperience }) => {
    const experiences = experience.map((exp) => (
@@ -22,7 +24,7 @@ const Experience = ({ experience, deleteExperience }) => {
                className='trashcan'
                onClick={() => deleteExperience(exp._id)}
             >
-               <i className='fas fa-trash-alt'></i>
+               <FontAwesomeIcon icon={faTrashAlt} />
             </button>
          </td>
       </tr>

@@ -1,17 +1,23 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+   faUserTie,
+   faUser,
+   faUserGraduate,
+} from '@fortawesome/free-solid-svg-icons'
 
 const DashboardActions = () => {
    return (
       <div className='actions-container'>
          <Link className='dashboard-actions' to='/create-profile'>
-            <i className='fas fa-user'></i> Edit Profile
+            <FontAwesomeIcon icon={faUser} /> Edit Profile
          </Link>
          <Link className='dashboard-actions' to='/add-experience'>
-            <i className='fas fa-user-tie'></i> Add Experience
+            <FontAwesomeIcon icon={faUserTie} /> Add Experience
          </Link>
          <Link className='dashboard-actions' to='/add-education'>
-            <i className='fas fa-user-graduate'></i> Add Education
+            <FontAwesomeIcon icon={faUserGraduate} /> Add Education
          </Link>
       </div>
    )
