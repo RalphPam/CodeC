@@ -1112,4 +1112,7 @@ body {
       font-size: 16px;
       flex: 6;
    }
+   .login-page {
+      margin: 0 25px;
+   }
 }
