@@ -1113,13 +1113,14 @@ body {
       flex: 6;
    }
    .login-page {
-      width: 230px;
+      width: 250px;
       padding-top: 100px;
    }
    .already {
       font-size: 14px;
    }
-   .login {
+   .login,
+   .login-btn {
       font-size: 16px;
    }
 }
