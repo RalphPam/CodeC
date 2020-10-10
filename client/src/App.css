@@ -1113,7 +1113,13 @@ body {
       flex: 6;
    }
    .login-page {
-      padding-right: 50px;
-      padding-left: 50px;
+      width: 230px;
+      padding-top: 100px;
+   }
+   .already {
+      font-size: 14px;
+   }
+   .login {
+      font-size: 16px;
    }
 }
