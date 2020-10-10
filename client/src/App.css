@@ -1113,6 +1113,7 @@ body {
       flex: 6;
    }
    .login-page {
-      margin: 0 25px;
+      padding-right: 50px;
+      padding-left: 50px;
    }
 }
