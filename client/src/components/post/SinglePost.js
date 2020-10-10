@@ -7,6 +7,8 @@ import PostItem from './PostItem'
 import CreatePost from './CreatePost'
 import Spinner from '../layout/Spinner'
 import Comment from './Comment'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBackward } from '@fortawesome/free-solid-svg-icons'
 
 const SinglePost = ({
    getPost,
@@ -24,7 +26,7 @@ const SinglePost = ({
    return (
       <div className='comments-page'>
          <Link className='back' style={{ display: 'inline-block' }} to='/posts'>
-            <i className='fas fa-backward'></i>
+            <FontAwesomeIcon icon={faBackward} />
          </Link>
          <PostItem post={post} isDiscussion={true} />
          <CreatePost
