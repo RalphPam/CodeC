@@ -4,7 +4,7 @@ import io from 'socket.io-client'
 
 const socket = io()
 
-const CreatePost = ({ addPost, isDiscussion, id, addComment, getAllPosts, getPost }) => {
+const CreatePost = ({ addPost, isDiscussion, id, addComment, getAllPosts, getPost, postId }) => {
    const [userData, setUserData] = useState({
       text: '',
    })
@@ -14,9 +14,9 @@ const CreatePost = ({ addPost, isDiscussion, id, addComment, getAllPosts, getPos
          getAllPosts()
       })
       socket.on('Comment status', status => {
-         getPost(id)
+         getPost(postId)
       })
-   }, [getAllPosts, getPost])
+   }, [getAllPosts, getPost, postId])
 
    const submitHandler = (e) => {
       e.preventDefault()
@@ -55,6 +55,7 @@ CreatePost.propTypes = {
    addPost: PropTypes.func,
    isDiscussion: PropTypes.bool.isRequired,
    id: PropTypes.string,
+   postId: PropTypes.string,
    addComment: PropTypes.func,
    getAllPosts: PropTypes.func.isRequired,
    getPost: PropTypes.func.isRequired,

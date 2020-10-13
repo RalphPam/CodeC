@@ -33,6 +33,7 @@ const SinglePost = ({
             isDiscussion={true}
             addComment={addComment}
             id={match.params.id}
+            postId={post._id}
          />
          {post.comments.length > 0 &&
             post.comments.map((comment, index) => (
