@@ -14,7 +14,7 @@ const CreatePost = ({ addPost, isDiscussion, id, addComment, getAllPosts, getPos
          getAllPosts()
       })
       socket.on('Comment status', status => {
-         getPost(postId)
+         postId && getPost(postId)
       })
    }, [getAllPosts, getPost, postId])
 

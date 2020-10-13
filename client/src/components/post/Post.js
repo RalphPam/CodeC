@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
-import { getAllPosts, addPost, getPost } from '../../redux/actions/post'
+import { getAllPosts, addPost } from '../../redux/actions/post'
 import CreatePost from './CreatePost'
 import PostItem from './PostItem'
 import Spinner from '../layout/Spinner'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faHandPeace } from '@fortawesome/free-solid-svg-icons'
 
-const Post = ({ post: { AllPosts, isLoading }, getAllPosts, addPost, getPost }) => {
+const Post = ({ post: { AllPosts, isLoading }, getAllPosts, addPost }) => {
    useEffect(() => {
       getAllPosts()
    }, [getAllPosts])
@@ -23,7 +23,6 @@ const Post = ({ post: { AllPosts, isLoading }, getAllPosts, addPost, getPost }) 
             addPost={addPost}
             isDiscussion={false}
             getAllPosts={getAllPosts}
-            getPost={getPost}
          />
          {AllPosts &&
             AllPosts.map((post) => (
@@ -37,11 +36,10 @@ Post.propTypes = {
    post: PropTypes.object.isRequired,
    getAllPosts: PropTypes.func.isRequired,
    addPost: PropTypes.func.isRequired,
-   getPost: PropTypes.func.isRequired,
 }
 
 const mapStateToProps = (state) => ({
    post: state.post,
 })
 
-export default connect(mapStateToProps, { getAllPosts, addPost, getPost })(Post)
+export default connect(mapStateToProps, { getAllPosts, addPost })(Post)

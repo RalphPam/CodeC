@@ -3,6 +3,8 @@ import PropTypes from 'prop-types'
 import Moment from 'react-moment'
 import { Link } from 'react-router-dom'
 import io from 'socket.io-client'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const socket = io()
 
@@ -18,7 +20,6 @@ const Comment = ({
       deleteComment(postId, _id)
       socket.emit('comment', 'Comment Update')
    }
-
    return (
       <div className='post'>
          <div className='post-top'>
@@ -33,7 +34,7 @@ const Comment = ({
                   className='post-btn-del'
                   onClick={deleteHandler}
                >
-                  <i className='fas fa-trash-alt'></i>
+                  <FontAwesomeIcon icon={faTrashAlt} />
                </button>
             )}
          </div>

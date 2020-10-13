@@ -34,6 +34,7 @@ const SinglePost = ({
             addComment={addComment}
             id={match.params.id}
             postId={post._id}
+            getPost={getPost}
          />
          {post.comments.length > 0 &&
             post.comments.map((comment, index) => (
