@@ -22,7 +22,7 @@ const UserProfile = ({
                   <div>
                      <h2 className='name'>{name}</h2>
                      <p className='status'>
-                        {status} {company && <span>at {company}</span>}
+                        {status !== 'None' && status} {company && <span>at {company}</span>}
                      </p>
                      <p className='location'>
                         {location && <span>{location}</span>}
@@ -30,7 +30,7 @@ const UserProfile = ({
                   </div>
                </div>
                <ul className='profile-skills'>
-                  {skills.map((skill, index) => (
+                  {skills[0] !== 'None' && skills.map((skill, index) => (
                      <li key={index}>{skill}</li>
                   ))}
                </ul>
