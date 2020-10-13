@@ -1,6 +1,0 @@
-{
-   "mongoURI": "mongodb+srv://Ralph:Pau083199@cluster0.hsmhu.mongodb.net/CodeC?retryWrites=true&w=majority",
-   "jwtSecret": "secretToken",
-   "githubClientId": "1ea1cb3ae535655bde42",
-   "githubClientSecret": "df478ee61832097eba72501d014adc0dfedfc1d5"
-}
