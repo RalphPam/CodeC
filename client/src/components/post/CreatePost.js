@@ -1,20 +1,35 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
+import io from 'socket.io-client'
 
-const CreatePost = ({ addPost, isDiscussion, id, addComment, getAllPosts }) => {
+const socket = io()
+
+const CreatePost = ({ addPost, isDiscussion, id, addComment, getAllPosts, getPost }) => {
    const [userData, setUserData] = useState({
       text: '',
    })
+
+   useEffect(() => {
+      socket.on('Post status', status => {
+         getAllPosts()
+      })
+      socket.on('Comment status', status => {
+         getPost()
+      })
+   }, [getAllPosts, getPost])
+
    const submitHandler = (e) => {
       e.preventDefault()
       if (isDiscussion) {
          addComment(userData, id)
+         socket.emit('comment', 'Comment Update')
       } else {
          addPost(userData)
-         getAllPosts()
+         socket.emit('post', 'Post Update')
       }
       setUserData({ text: '' })
    }
+
    return (
       <form className='post-form' onSubmit={submitHandler}>
          <textarea
@@ -42,6 +57,7 @@ CreatePost.propTypes = {
    id: PropTypes.string,
    addComment: PropTypes.func,
    getAllPosts: PropTypes.func.isRequired,
+   getPost: PropTypes.func.isRequired,
 }
 
 export default CreatePost

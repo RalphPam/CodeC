@@ -10,6 +10,9 @@ import {
    faHeart,
    faComment,
 } from '@fortawesome/free-solid-svg-icons'
+import io from 'socket.io-client'
+
+const socket = io()
 
 const PostItem = ({
    post: { avatar, name, text, date, likes, comments, user, _id },
@@ -39,6 +42,11 @@ const PostItem = ({
       }
    }
 
+   const deleteHandler = () => {
+      deletePost(_id)
+      socket.emit('post', 'Post Update')
+   }
+
    const [likeToggle, setLikeToggle] = useState(null)
    return (
       <div className='post'>
@@ -50,7 +58,7 @@ const PostItem = ({
                <h3 className='post-name'>{name}</h3>
             </Link>
             {isAuthenticated && user === loginId && (
-               <button className='post-btn-del' onClick={() => deletePost(_id)}>
+               <button className='post-btn-del' onClick={deleteHandler}>
                   <FontAwesomeIcon icon={faTrashAlt} />
                </button>
             )}

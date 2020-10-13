@@ -1,8 +1,12 @@
 const express = require('express')
 const connectDB = require('./config/db')
 const path = require('path')
+const http = require('http')
+const socketio = require('socket.io')
 
 const app = express()
+const server = http.createServer(app)
+const io = socketio(server)
 
 connectDB()
 
@@ -21,8 +25,18 @@ if (process.env.NODE_ENV === 'production') {
    })
 }
 
+io.on("connection", socket => {
+   console.log('Socket Connected')
+   socket.on('post', status => {
+      socket.broadcast.emit('Post status', status)
+   })
+   socket.on('comment', status => {
+      socket.broadcast.emit('Comment status', status)
+   })
+})
+
 const PORT = process.env.PORT || 5000
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
    console.log(`Server started at port ${PORT}`)
 })

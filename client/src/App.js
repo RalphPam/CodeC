@@ -1,5 +1,6 @@
 import React, { Fragment, useEffect } from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+
 import Navbar from './components/layout/Navbar'
 import Login from './components/auth/Login'
 import Register from './components/auth/Register'
@@ -15,6 +16,7 @@ import UserProfile from './components/Profile/UserProfile'
 import Post from './components/post/Post'
 import SinglePost from './components/post/SinglePost'
 import './App.css'
+
 
 import { setAuthToken } from './utils/setAuthToken'
 import { Provider } from 'react-redux'

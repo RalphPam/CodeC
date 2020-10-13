@@ -35,8 +35,9 @@ const SinglePost = ({
             id={match.params.id}
          />
          {post.comments.length > 0 &&
-            post.comments.map((comment) => (
+            post.comments.map((comment, index) => (
                <Comment
+                  key={index}
                   comment={comment}
                   isAuthenticated={isAuthenticated}
                   postId={post._id}
